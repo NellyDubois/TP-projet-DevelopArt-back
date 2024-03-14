@@ -12,9 +12,9 @@ const contactController = {
     async sendEmail(req, res, next) {
 
         const transporter = nodemailer.createTransport({
-            service: 'gmail',
-            host: 'smtp.gmail.com',
-            port: 465,
+            service: `${process.env.NODEMAILER_SERVICE}`,
+            host: `${process.env.NODEMAILER_HOST}`,
+            port: `${process.env.NODEMAILER_PORT}`,
             secure:true,    
 
             auth: {
@@ -51,28 +51,3 @@ const contactController = {
 
 export default contactController;
 
-
-//   Côté front
-//   fetch('http://localhost:3000/envoyer-email', {
-//   method: 'POST',
-//   headers: {
-//     'Content-Type': 'application/json'
-//   },
-//   body: JSON.stringify({
-//     destinataire: 'odevelopart@gmail.com',
-//     sujet: 'Sujet de l\'email',
-//     contenu: 'Contenu de l\'email'
-//   })
-// })
-// .then(response => {
-//   if (!response.ok) {
-//     throw new Error('Erreur lors de la requête.');
-//   }
-//   return response.json();
-// })
-// .then(data => {
-//   console.log(data);
-// })
-// .catch(error => {
-//   console.error('Erreur lors de la requête :', error);
-// });

@@ -1,0 +1,17 @@
+<div className="backOffice">
+    <form id="mainForm" action="http://localhost:3080/upload" method="POST" encType="multipart/form-data">
+      <h2>Test de téléchargement de fichier avec Multer</h2>
+      <label htmlFor="fichier">Image :</label>
+      <input type="file" name="fichier" />
+      <button type="submit">Télécharger</button>
+  
+      <h3>Informations sur l'image</h3>
+      <label htmlFor="name">Nom :</label>
+      <input type="text" name="name" />
+      <label htmlFor="description">Description :</label>
+      <textarea name="description"></textarea>
+      <label htmlFor="production_year">Année de production :</label>
+      <input type="date" name="production_year" />
+      <button type="submit">Enregistrer les informations</button>
+    </form>
+  </div>

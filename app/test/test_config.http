@@ -1,0 +1,23 @@
+# # # # # //route pour tester GET /:artiste_id/oeuvres
+# GET http://localhost:3000/1/configuration
+# Content-Type:application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.MQ.W6PGTCJ5oubFUOAV8VWOoh8_SzmiMcBzDzWunPTtlKw
+
+PATCH http://localhost:3000/2/configuration
+Content-Type:application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.MQ.W6PGTCJ5oubFUOAV8VWOoh8_SzmiMcBzDzWunPTtlKw
+
+{
+  "font_type": "Callista",
+  "background_color": "#000000",
+  "background_color_nav": "#000000",  
+  "cursor": "Arrow",
+  "font_color": "#FFFFFF",
+  "layout": 1,
+  "banner": "https://picsum.photos/id/57/2448/3264",
+  "logo" : "logo-photo.png",
+  "facebook_flag": true,
+  "insta_flag": true,
+  "twitter_flag": true,
+  "youtube_flag": true
+}

@@ -1,0 +1,17 @@
+POST http://localhost:3000/1/envoyer-email
+Content-Type:application/json
+
+{
+    "firstname":"Nel",
+    "familyName":"Mez",
+    "phone":"068177",
+    "email":"alizj@gmail.com", 
+    "objectEmail":"j'ai un objet",
+    "story":"je teste encore nodemailer"
+}
+
+# {
+#     "email": "odevelopart@gmail.com",
+#     "sujet": "question",
+#     "contenu": "il était une fois une question"
+# }

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Téléchargement d'image et informations associées</title>
+</head>
+<body>
+  <h2>Téléchargement d'image et informations associées</h2>
+  
+  <!-- Formulaire pour télécharger l'image -->
+  <form id="uploadForm" action="http://localhost:3080/upload/image" method="POST" enctype="multipart/form-data">
+    <label for="fichier">Image :</label>
+    <input type="file" name="fichier"><br>
+    <button type="submit">Télécharger l'image</button>
+  </form>
+
+  <!-- Formulaire pour saisir les informations associées -->
+  <h3>Informations sur l'image</h3>
+  <form id="infoForm" action="http://localhost:3080/upload/info" method="POST">
+   
+    <label for="name">Nom :</label>
+    <input type="text" name="name"><br>
+    <label for="description">Description :</label>
+    <textarea name="description"></textarea><br>
+    <label for="production_year">Année de production :</label>
+    <input type="date" name="production_year"><br>
+    <!-- Ajoutez les autres champs ici -->
+    <button type="submit">Enregistrer les informations</button>
+  </form>
+
+  
+</body>
+</html>

@@ -1,0 +1,49 @@
+// Import du module 'dotenv' pour charger les variables d'environnement depuis le fichier .env
+import 'dotenv/config';
+
+// Import du framework Express pour créer le serveur web
+import express from "express";
+
+//Import du module CORS (Cross-Origin Resource Sharing)
+import cors from "cors";
+
+// Mise en place d'OpenAPI (Swagger)
+import apiDocs from "./app/service/apiDocs.js";
+
+// Import des routeurs depuis le point d'entrée du dossier des routes index
+import router from "./app/router/index.js";
+
+// Création de l'application Express
+const app = express();
+
+
+console.log(process.env.BASE_URL_FRONT);
+const corsOptions = {
+    origin: [`${process.env.BASE_URL_FRONT}`,`${process.env.BASE_URL_FRONT_2}`],
+    optionsSuccessStatus: 200 // code succès 200 plutôt que 204 à cause de navigateurs comme IE11
+};
+// Initialisation d'OpenAPI (swagger)
+apiDocs(app);
+// Les CORS permettent de bloquer des requêtes qui arrivent depuis d'autres URL
+// on autorise explicitement les requêtes provenant de l'URL du serveur frontend à accéder à l'API backend
+app.use(cors(corsOptions));
+
+// autorise la réception de données provenant de formulaires
+app.use(express.urlencoded({extended:true}));
+
+
+app.use(express.static('public'));
+
+// Middleware pour autoriser Express à parser les données au format JSON
+app.use(express.json());
+
+// Middleware pour utiliser les routeurs 
+app.use(router);
+
+// Définition du port sur lequel le serveur va écouter (dans fichier .env) ou le port 3000 par défaut
+const PORT = process.env.PORT || 3000;
+
+// Lancement du serveur Express et écoute sur le port 
+app.listen(PORT,()=>{
+    console.log(`Listening http://localhost:${PORT}`);
+});

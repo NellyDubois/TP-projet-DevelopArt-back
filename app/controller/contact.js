@@ -11,18 +11,6 @@ const contactController = {
     
     async sendEmail(req, res, next) {
 
-        // const oauth2Client = new google.auth.OAuth2(
-        //     '706207289318-3pesshg6vf1n5t1k45nuoi7h3k5i5cnk.apps.googleusercontent.com',
-        //     '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',
-        //     'YOUR_REDIRECT_URI'
-        //   );
-          
-        //   oauth2Client.setCredentials({
-        //     refresh_token: 'YOUR_REFRESH_TOKEN'
-        //   });
-          
-        //   const accessToken = await oauth2Client.getAccessToken();
-
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             host: 'smtp.gmail.com',
@@ -30,12 +18,6 @@ const contactController = {
             secure:true,    
 
             auth: {
-                // type: 'OAuth2',
-                // user: 'odevelopart@gmail.com',
-                // clientId: '706207289318-3pesshg6vf1n5t1k45nuoi7h3k5i5cnk.apps.googleusercontent.com',
-                // clientSecret: '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',
-                // refreshToken: 'YOUR_REFRESH_TOKEN',
-                // accessToken: accessToken
               user: `${process.env.NODEMAILER_USER}`,
               pass: `${process.env.NODEMAILER_PASS}`
             }

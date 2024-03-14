@@ -36,8 +36,8 @@ const contactController = {
                 // clientSecret: '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',
                 // refreshToken: 'YOUR_REFRESH_TOKEN',
                 // accessToken: accessToken
-              user: 'odevelopart@gmail.com',
-              pass: 'yglh jpgt zpry rgoz'
+              user: `${process.env.NODEMAILER_USER}`,
+              pass: `${process.env.NODEMAILER_PASS}`
             }
           });
 

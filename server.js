@@ -14,24 +14,25 @@ import apiDocs from "./app/service/apiDocs.js";
 import router from "./app/router/index.js";
 
 // Création de l'application Express
-const app = express();
+const app = express()
 
-
-console.log(process.env.BASE_URL_FRONT);
+// Configuration des options CORS pour autoriser les requêtes provenant de l'URL du serveur frontend
 const corsOptions = {
     origin: [`${process.env.BASE_URL_FRONT}`,`${process.env.BASE_URL_FRONT_2}`],
     optionsSuccessStatus: 200 // code succès 200 plutôt que 204 à cause de navigateurs comme IE11
 };
-// Initialisation d'OpenAPI (swagger)
-apiDocs(app);
+
 // Les CORS permettent de bloquer des requêtes qui arrivent depuis d'autres URL
 // on autorise explicitement les requêtes provenant de l'URL du serveur frontend à accéder à l'API backend
 app.use(cors(corsOptions));
 
+// Initialisation d'OpenAPI (swagger)
+apiDocs(app);
+
 // autorise la réception de données provenant de formulaires
 app.use(express.urlencoded({extended:true}));
 
-
+// pour servir les ressources statiques (images des bannières, cursors, logos et oeuvres) depuis le dossier 'public'
 app.use(express.static('public'));
 
 // Middleware pour autoriser Express à parser les données au format JSON

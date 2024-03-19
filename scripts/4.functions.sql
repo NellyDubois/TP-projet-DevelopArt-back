@@ -140,8 +140,8 @@ CREATE OR REPLACE FUNCTION get_artist_by_id(int) RETURNS table
 $$ LANGUAGE sql SECURITY DEFINER;
 
 -- Modification des informations d'un artiste dans la table artist et la table artist_details
--- La fonction COALESCE est utilisée pour chaque colonne mise à jour. Elle prend comme arguments la nouvelle valeur fournie dans la requête (par exemple, path_param) et la valeur existante dans la base de données (par exemple, "path"). Si la nouvelle valeur est nulle, la fonction COALESCE renvoie la valeur existante, sinon elle renvoie la nouvelle valeur.
 CREATE OR REPLACE FUNCTION update_artist(
+    --Paramètres de la fonction
     artist_id_param int,
     path_param text,
     lastname_param text,
@@ -162,12 +162,13 @@ CREATE OR REPLACE FUNCTION update_artist(
     youtube_param text
 ) 
 RETURNS json AS $$
-DECLARE 
-    updated_artist json;
-    updated_artist_id int;
+    DECLARE --Déclaration des variables locales
+    updated_artist json; --Déclaration de la variable pour stocker les données mises à jour de l'artiste
+    updated_artist_id int; --Déclaration de la variable pour stocker l'identifiant de l'artiste mis à jour
 BEGIN
     -- Mise à jour des informations dans la table artist
     UPDATE artist 
+    --Chaque colonne à mettre à jour est spécifiée, et la fonction COALESCE est utilisée pour déterminer si une nouvelle valeur est fournie dans la requête ou si la valeur existante doit être conservée
     SET 
         "path" = COALESCE(path_param, "path"),
         "lastname" = COALESCE(lastname_param, "lastname"),
@@ -179,8 +180,7 @@ BEGIN
     WHERE 
         artist.id = artist_id_param
     RETURNING 
-        artist.id INTO updated_artist_id;
-    
+        artist.id INTO updated_artist_id;--Récupération de l'identifiant de l'artiste mis à jour et stokage dans la variable locale    
     -- Mise à jour des informations dans la table artist_details
     UPDATE artist_details 
     SET 
@@ -199,7 +199,7 @@ BEGIN
     WHERE 
         artist_details.artist_id = updated_artist_id;
     
-    -- Renvoie les données mises à jour de la table artist
+    -- Renvoie les données mises à jour de la table artist dans un objet json
     SELECT 
         json_build_object(
             'id', a.id,
@@ -223,7 +223,7 @@ BEGIN
             'updated_at', NOW()  -- Ajout de la date et de l'heure actuelles
         )
     INTO 
-        updated_artist
+        updated_artist --Stockage des données mises à jour dans la variable locale
     FROM 
         artist a
     FULL JOIN 
@@ -231,7 +231,7 @@ BEGIN
     WHERE 
         a.id = updated_artist_id;
     
-    RETURN updated_artist;
+    RETURN updated_artist;--Retour des données mises à jour de l'artiste dans un objet json
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;
 
@@ -275,7 +275,7 @@ BEGIN
         a.position,
         a.homepage_flag,
         a.artist_id,
-        a.updated_at,,
+        a.updated_at,
         array_agg(c.name) AS categories
     FROM artwork a
     LEFT JOIN artwork_has_category ahc ON a.id = ahc.artwork_id
@@ -359,7 +359,7 @@ BEGIN
     RETURN QUERY 
     SELECT 
         a.id,
-        a.name,x
+        a.name,
         a.description,
         a.production_year,
         a.technique,
@@ -387,33 +387,36 @@ $$ LANGUAGE plpgsql SECURITY DEFINER;
 
 
 -- Création du type artwork_with_categories pour récupérer des détails de l'oeuvre avec les catégories
-
 CREATE TYPE artwork_with_categories AS (
     id int,
-     name text,
-     description text,
-     production_year date,
-     technique text,
-     width int,
-     height int,
-     media text,
-     framing boolean,
-     quote text,
-     path text,
-     orientation text,
-     "position" int,
-     homepage_flag boolean,
-     artist_id int,
+    name text,
+    description text,
+    production_year date,
+    technique text,
+    width int,
+    height int,
+    media text,
+    framing boolean,
+    quote text,
+    path text,
+    orientation text,
+    "position" int,
+    homepage_flag boolean,
+    artist_id int,
     categories text[]
 );
 
 -- Récupération des détails d'une oeuvre avec ses catégories
+-- La fonction est définie avec les paramètres artist_id_param et artwork_id_param, qui représentent respectivement l'identifiant de l'artiste et l'identifiant de l'œuvre que l'on souhaite récupérer.
 CREATE OR REPLACE FUNCTION get_artwork_by_artist_and_id(artist_id_param int, artwork_id_param int)
+-- Le type de retour de la fonction est défini comme artwork_with_categories, qui est un type de données composite que nous avons créé précédemment.
 RETURNS artwork_with_categories AS $$
-DECLARE
+DECLARE --déclaration des variables locales
     artwork_found artwork_with_categories;
 BEGIN
-    SELECT  a.id,
+-- Requête pour récupérer les détails de l'oeuvre depuis la table "artwork" en filtrant par l'identifiant de l'artiste et l'identifiant de l'oeuvre. Les résultats sont stockés dans la variable artwork_found.
+    SELECT 
+         a.id,
          a.name,
          a.description,
          a.production_year,
@@ -429,6 +432,7 @@ BEGIN
          a.homepage_flag,
          a.artist_id	
 	INTO artwork_found FROM artwork a WHERE a.artist_id = artist_id_param AND a.id = artwork_id_param;
+    --agrégation des valeurs de la colonne name de la table category--> stocké dans la variable categories de type tableau
     SELECT array_agg(c.name) INTO artwork_found.categories
     FROM category c
     JOIN artwork_has_category ac ON c.id = ac.category_id
@@ -694,6 +698,7 @@ $$ LANGUAGE plpgsql SECURITY DEFINER;
 -- si categories est null, retourne l'objet JSON sans ajouter de catégories
 -- sinon, ajoute les catégories à l'objet JSON de l'oeuvre d'art
 CREATE OR REPLACE FUNCTION add_artwork_by_artist_id(
+    --paramètres de la fonction
     artist_id_param INT, 
     artwork_name_param TEXT, 
     description_param TEXT, 
@@ -711,7 +716,7 @@ CREATE OR REPLACE FUNCTION add_artwork_by_artist_id(
     category_names TEXT
 ) 
 RETURNS JSON AS $$
-DECLARE
+DECLARE --déclaration des variables locales
     new_artwork_json JSON;
     category_names_array TEXT[];
     category_id INTEGER;
@@ -738,9 +743,10 @@ BEGIN
         NOW(), 
         NOW()
     )
+    -- Récupération de l'ID de la nouvelle œuvre d'art
     RETURNING id INTO new_artwork_id;
 
-    -- Construire l'objet JSON représentant la nouvelle œuvre d'art
+    -- Construction de l'objet JSON représentant la nouvelle œuvre d'art
     SELECT json_build_object(
         'id', new_artwork_id,
         'name', artwork_name_param,
@@ -758,14 +764,14 @@ BEGIN
         'homepage_flag', homepage_flag_param
     ) INTO new_artwork_json;
 
-    -- Si category_names est null, retourner simplement l'objet JSON sans ajouter de catégories
+    -- Si category_names est null, on retourne simplement l'objet JSON sans ajouter de catégories
     IF category_names IS NOT NULL THEN
         -- Insertion des données dans la table "artwork_has_category" pour chaque catégorie fournie
         FOREACH category_name IN ARRAY string_to_array(category_names, ',') LOOP
             -- Récupération de l'ID de la catégorie
             SELECT id INTO category_id FROM category WHERE name = category_name;
 
-            -- Vérification si l'ID de la catégorie est valide
+            -- On vérifie si l'ID de la catégorie est valide
             IF category_id IS NOT NULL THEN
                 -- Insertion des données dans la table "artwork_has_category"
                 INSERT INTO artwork_has_category (artwork_id, category_id, created_at, updated_at)
@@ -1107,7 +1113,7 @@ END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;
 
 -- Récupération de tous les noms de catégories sans doublon par l'id de l'artiste
-DROP FUNCTION get_categories_names_by_artist_id(artist_id_param INT);
+-- DROP FUNCTION get_categories_names_by_artist_id(artist_id_param INT);
 CREATE OR REPLACE FUNCTION get_categories_names_by_artist_id(artist_id_param INT) 
 RETURNS TABLE (
     id int,

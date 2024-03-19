@@ -33,7 +33,6 @@ export default {
         // get_artist_by_id($1) est une fonction sql
         const sqlQuery = "SELECT * FROM get_artist_by_id($1);";
         const values = [artist_id];
-
         return await executeRequestWithSingleResult(sqlQuery, values);
     },
 

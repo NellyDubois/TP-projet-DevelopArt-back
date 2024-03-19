@@ -17,8 +17,6 @@ export async function executeRequest(sqlQuery,values){
     catch(err){ // Capture les erreurs survenues lors de l'exécution de la requête
         error = err;
     }
-
-    console.log("result execute",result)
     return {result,error};
 }
 

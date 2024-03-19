@@ -7,28 +7,24 @@ import { APIError } from './error/APIError.js';
 import jwt from "../service/jwt.js";
 
 /**
- * Middleware pour vérifier si l'utilisateur est un artiste et s'il a donc le droit d'accéder  * aux pages de configuration
+ * Middleware pour vérifier si l'utilisateur est un artiste et s'il a donc le droit d'accéder aux pages de configuration
  * @param {*} req - Requête HTTP
  * @param {*} res - Réponse HTTP
  * @param {*} next - Fonction de rappel pour passer au middleware suivant
  */
 export function isArtist(req, res, next) {
 
-    console.log("je passe dans isArtist");
-
     // Récupération du header Authorization de la requête
     const authorizationHeader = req.get("Authorization");
 
-     console.log("authorizationHeader",authorizationHeader)   ;
-     
+    // Vérification de l'existence du header Authorization
     if (authorizationHeader !== null && authorizationHeader !== undefined) {
-        //on extrait le token du header en enlevant sans Bearer
+        // Vérification du format du header Authorization
         if (authorizationHeader.split(" ")[0] !== "Bearer") {
             next(new APIError("Accès non autorisé",401));
         }
-        const token = authorizationHeader.split(" ")[1];;
-        console.log("isArtist token",token);
-
+        //on extrait le token du header en enlevant Bearer
+        const token = authorizationHeader.split(" ")[1];
     
         // Vérification du token
         const { result, error } = jwt.decode(token);
@@ -36,12 +32,9 @@ export function isArtist(req, res, next) {
         //on transforme result en nombre
         const resultNr=Number(result);
 
-        console.log("result token",result);
-        console.log("error token",error);
-
-        if (resultNr) {
-            
-            // Vérification du rôle de l'utilisateur: artiste(1) ou simple visiteur?
+        // Vérification de l'existence du résultat
+        if (resultNr) {            
+            // Vérification du rôle de l'utilisateur: artiste=1 ou simple visiteur?
             if (resultNr === 1) { 
                 next(); // L'utilisateur est un artiste, passer au middleware suivant
             }

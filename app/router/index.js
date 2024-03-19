@@ -6,42 +6,32 @@ import userController from "../controller/user.js";
 // Import des schémas
 import { signinSchema,signupShema } from '../service/validation/schema.js';
 
-// Middleware de validation
+// Import du middleware de validation
 import { validate } from '../service/validation/validate.js';
 
+// Import de multer pour le téléchargement des images
 import multer from 'multer';
+
+// Import de path pour gérer les chemins de fichiers
 import path from 'path';
 
-
-
-// import artistRouter from "./artist.js";
-// import userRouter from "./user.js";
-// import artistRouter from "./artist.js";
-
-
-//pemet de vérifier le rôle pour distinguer l'artiste des
-//visiteurs de son site
+//permet de vérifier le rôle pour distinguer l'artiste des visiteurs de son site
 import { isArtist } from "../service/security.js";
 
+//import des controllers
 import artistController from '../controller/artist.js';
 import categoryController from '../controller/category.js';
-
 import artworkController from '../controller/artwork.js';
-
 import configurationController from '../controller/configuration.js';
-
 import contactController from '../controller/contact.js';
 
+//import du middleware de gestion des erreurs
 import errorHandler from "../service/error/errorHandler.js";
 
+// Création du routeur
 const router = Router();
 
-// Middleware de configuration de Multer pour le téléchargement des images
-// const upload = multer({ dest: 'public/upload/' });
-
-// Middleware de configuration de Multer pour le téléchargement des images
-//pour sauvegarder avec le nom initial dans upload
-
+// Configuration de Multer
 //On crée une nouvelle instance de stockage pour Multer. Le stockage est configuré pour enregistrer les fichiers sur le disque.
 const storage = multer.diskStorage({
     destination: function (req, file, cb) { //Cette ligne définit la fonction de destination où seront enregistrés les fichiers téléchargés. La fonction prend trois paramètres : req (la demande HTTP), file (le fichier téléchargé) et cb (une fonction de rappel).
@@ -54,12 +44,8 @@ const storage = multer.diskStorage({
     }
   });
   
-  // Configurer Multer avec le stockage personnalisé
-  const upload = multer({ storage: storage });
-
-
-// route de test rapide --> à supprimer
-// router.get('/', (req, res) => {res.send('ok');});
+  // Configurer Multer avec le stockage personnalisé défini au-dessus
+   const upload = multer({ storage: storage });
 
 //pour créer de nouveaux artistes
 /**
@@ -88,6 +74,7 @@ router.post("/signin",validate(signinSchema),userController.signin);
 // par exemple, afficher la page de configuration, modifier les données de config, de l'artiste,...
 
 // Toutes les routes qui commencent par /:artiste_id/oeuvres
+
 // Route pour la récupération une oeuvre d'un artiste
 /**
     * GET /{artiste_id}/oeuvres/{oeuvre_id}

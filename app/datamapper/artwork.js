@@ -30,7 +30,6 @@ export default {
         // get_artworks_by_artist_id($1) est une fonction sql
         const sqlQuery = "SELECT * FROM get_artworks_by_artist_id($1)";
         const values = [artiste_id];
-
         return await executeRequest(sqlQuery, values);
     },
 
@@ -39,7 +38,6 @@ export default {
         // get_artworks_by_artist_id($1) est une fonction sql
         const sqlQuery = "SELECT * FROM get_artworks_for_home_page($1)";
         const values = [artiste_id];
-
         return await executeRequest(sqlQuery, values);
     },   
 
@@ -54,34 +52,27 @@ export default {
         // get_artwork_by_artist_and_id($1,$2) est une fonction sql
         const sqlQuery = "SELECT * FROM get_artwork_by_artist_and_id($1,$2)";
         const values = [artist_id,artwork_id];
-
         return await executeRequestWithSingleResult(sqlQuery, values);
     },
 
     async addArtworkByArtistId(artist_id, artwork_name, description, production_year, technique, width, height, media, framing, quote, path, orientation, position, homepage_flag,category_names) {
         // Requête SQL pour ajouter une oeuvre à la galerie de l'artiste
         const sqlQuery = "SELECT * FROM add_artwork_by_artist_id($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14,$15)";
-        console.log("sqlQuery",sqlQuery);
         const values = [artist_id, artwork_name, description, production_year, technique, width, height, media, framing, quote, path, orientation, position, homepage_flag,category_names];
-        console.log("values",values);
         return await executeRequestWithSingleResult(sqlQuery, values);
     },
 
     async modifyArtworkByArtistAndId(artist_id, artwork_id,artwork_name, description, production_year, technique, width, height, media, framing, quote, path, orientation, position, homepage_flag,category_names) {
         // Requête SQL pour modifier une oeuvre à la galerie de l'artiste et la date de mise à jour
         const sqlQuery = "SELECT * FROM modify_artwork_by_id_and_artist_id($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15,$16)";
-        console.log("sqlQuery",sqlQuery);
         const values = [artist_id, artwork_id,artwork_name, description, production_year, technique, width, height, media, framing, quote, path, orientation, position, homepage_flag,category_names];
-        console.log("values",values);
         return await executeRequestWithSingleResult(sqlQuery, values);
     },
 
     async deleteArtworkByArtistAndId(artwork_id,artist_id){
         const sqlQuery = "SELECT * FROM delete_artwork_by_id_and_artist_id($1, $2)";
-        console.log("sqlQuery datamapper",sqlQuery);
         const values = [artwork_id, artist_id];
-        console.log("values",values);
-        return executeRequestWithSingleResult(sqlQuery, values);
+        return await executeRequestWithSingleResult(sqlQuery, values);
     }
 
 };

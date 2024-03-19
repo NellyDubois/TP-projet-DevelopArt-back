@@ -1,8 +1,11 @@
-export PGUSER=postgres
-export PGPORT=5432
+# export PGUSER=postgres
+# export PGPORT=5432
 
 # export PGUSER=JulieZaccaria
-# export PG_URL=postgresql://JulieZaccaria:QgD7PTXw4sjk@ep-divine-shadow-a2r2gb0p-pooler.eu-central-1.aws.neon.tech/developart?sslmode=require
+#export PG_URL=postgresql://JulieZaccaria:QgD7PTXw4sjk@ep-divine-shadow-a2r2gb0p-pooler.eu-central-1.aws.neon.tech/developart?sslmode=require
+
+export PGUSER=postgres
+export PGPORT=5432
 
 # Exécution du script d'initialisation de la BDD
 psql -f 1.init_db.sql
@@ -19,3 +22,5 @@ psql -f 3.seeding.sql
 
 # Exécution du script de création des fonctions
 psql -f 4.functions.sql
+
+

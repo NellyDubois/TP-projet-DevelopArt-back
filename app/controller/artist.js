@@ -17,12 +17,10 @@ const artistController = {
 
         const artiste_id = req.params.artiste_id;
         const { path, lastname, firstname, email, password, biography, birthdate, type, street_no, street_name, zipcode, city, phone, facebook, insta, twitter, youtube} = req.body;
-        console.log("req.body",req.body);
-   
+           
         const { result, error } = await artistDatamapper.updateArtistById(artiste_id, path, lastname, firstname, email, password, biography, birthdate, type, street_no, street_name, zipcode, city, phone, facebook, insta, twitter, youtube);
         // res.status(200).json({ message: "Informations de l'artiste mises à jour avec succès." });
         
-        console.log("result",result);
         manageResponse(res, result, error, next);
     }
 };

@@ -23,9 +23,9 @@ export default {
         //on cherche si un utilisateur avec l'email login.email existe dans la table "artist"
         // équivalent avec une fonction sql de const sqlQuery="SELECT * FROM artist WHERE artist.email=$1"; avec une fonction pgpsql
         const sqlQuery = "SELECT * FROM check_user($1);";
-        // console.log("sqlQuery",sqlQuery);
+     
         const values = [login];
-        // console.log("values",values);
+        
         return await executeRequestWithSingleResult(sqlQuery,values);        
         }
     ,
@@ -40,9 +40,9 @@ export default {
         // la requête SQL pour insérer un nouvel utilisateur est préparée
         //add_user($1) est une fonction sql
         const sqlQuery = "SELECT * FROM add_user($1);";
-        console.log(sqlQuery);
+       
         const values = [artist];
-        console.log("values=>",values);
+        
         
         return await executeRequestWithSingleResult(sqlQuery,values);
 

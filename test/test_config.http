@@ -3,18 +3,38 @@
 # Content-Type:application/json
 # Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.MQ.W6PGTCJ5oubFUOAV8VWOoh8_SzmiMcBzDzWunPTtlKw
 
-PATCH http://localhost:3000/2/configuration
+# PATCH http://localhost:3000/2/configuration
+# Content-Type:application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.MQ.W6PGTCJ5oubFUOAV8VWOoh8_SzmiMcBzDzWunPTtlKw
+
+# {
+#   "font_type": "Callista",
+#   "background_color": "#000000",
+#   "background_color_nav": "#000000",  
+#   "cursor": "Arrow",
+#   "font_color": "#FFFFFF",
+#   "layout": 1,
+#   "banner": "https://picsum.photos/id/57/2448/3264",
+#   "logo" : "logo-photo.png",
+#   "facebook_flag": true,
+#   "insta_flag": true,
+#   "twitter_flag": true,
+#   "youtube_flag": true
+# }
+
+
+PATCH http://localhost:3000/12/configuration
 Content-Type:application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.MQ.W6PGTCJ5oubFUOAV8VWOoh8_SzmiMcBzDzWunPTtlKw
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.MTI.s-dYYHEGStxrgL8anWit0zfF0TRo-EMmYQNj-96_5Tc
 
 {
-  "font_type": "Callista",
-  "background_color": "#000000",
-  "background_color_nav": "#000000",  
-  "cursor": "Arrow",
-  "font_color": "#FFFFFF",
+  "font_type": "Barriecito",
+  "background_color": "#030303",
+  "background_color_nav": "#FDB549",  
+  "cursor": "/cursor/camera.png",
+  "font_color": "#3ad9ee",
   "layout": 1,
-  "banner": "https://picsum.photos/id/57/2448/3264",
+  "banner": "/banner/abstrait-jaune-vert.jpeg",
   "logo" : "logo-photo.png",
   "facebook_flag": true,
   "insta_flag": true,

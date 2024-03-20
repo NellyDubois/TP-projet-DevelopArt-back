@@ -62,8 +62,7 @@ export default {
         // Requête SQL pour modifier les informations d'un artiste
         const sqlQuery = "SELECT * FROM update_artist($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18);";
         const values = [artiste_id, path, lastname, firstname, email, password, biography, birthdate, type, street_no, street_name, zipcode, city, phone, facebook, insta, twitter, youtube];
-        console.log("sqlQuery",sqlQuery);
-        console.log("values",values);
+        
         return await executeRequest(sqlQuery, values);
     }
 };

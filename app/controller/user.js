@@ -19,21 +19,13 @@ export default {
                 
         //le login inclut l'email et le mot de passe du formulaire de connexion
         const login = req.body;
-        console.log("login=>",login);
-
         // Récupération du user en BDD via son email
         let { error, result } = await userDatamapper.checkUser(login);
-        console.log("result datamapper",result);
-        console.log("error datamapper",error);
 
         //Si l'utilisateur n'est pas trouvé dans la BDD, on envoie le message Utilisateur non trouvé
         if (result && result.check_user === null) {
-            // error = "Utilisateur non trouvé";
-            // console.log("new error",error);
-            // res.json("Utilisateur non trouvé");
-
             error = new APIError("Les identifiants sont incorrects", 401);
-            // logger.info(`Les identifiants sont incorrects`);
+            //logger.info(`Les identifiants sont incorrects`);
             next(error);
         }
 
@@ -41,23 +33,15 @@ export default {
        else{
 
             const user=result.check_user;
-            console.log("user=>",user);
-            
-            console.log("login.password",login.password);
-
-            console.log("user.password",user.password);
         
             // Comparaison du mot de passe retourné par la BDD et celui fourni via le formulaire
             //le booléen isPasswordMatch=true si le mdp est le bon
             const isPasswordMatch = await passwordMatch(login.password, user.password);
-            console.log("isPasswordMatch",isPasswordMatch);
 
         //si l'utilisateur existe et que le mot de passe est correct,
         //on génère un token JWT et on l'attribue au user
         if (user && isPasswordMatch) {
-            console.log("user condition",user);
             const token = jwt.encode(user);
-            console.log("token",token);
             user.token = token;
             
             //on ne garde que quelques données de l'utilisateur
@@ -86,11 +70,9 @@ export default {
     //!dans un premier temps, ce sera le super admin qui créera les comptes des artistes
     async signup(req, res, next) {
         const artist = req.body;
-        console.log("artist signup",artist);
 
         // Chiffrement du mot de passe
         artist.password = await encodePassword(artist.password);
-        // console.log("pwd hashe",artist.password);
 
         const {error,result} = await userDatamapper.addUser(artist);
 
@@ -115,7 +97,7 @@ export default {
         // Vérification du token
         const user = jwt.decode(token);
 
-        // console.log(user);
+        
 
         // Récupère les données de l'utilisateur dans la base de données en utilisant l'identifiant de l'utilisateur extrait du token JWT.
         const { error, result } = await userDatamapper.getUser(user.id);

@@ -14,7 +14,7 @@ const errorHandler = (error, _, response, next) => {
     // Affichage du message d'erreur via le module debug
     debug('errorHandler', error);
     // Affichage du message d'erreur dans la console
-    console.log(error);
+    
     // Enregistrement du message d'erreur dans les logs avec le logger personnalisé
     // logger.log('error', error.message);
 

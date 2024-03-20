@@ -15,10 +15,7 @@ const categoryController = {
     },
     // Récupération d'une catégorie par son id et par l'id de l'artiste
     async getCategoryByArtistAndId(req, res, next) {
-        console.log("controller req.params.artiste_id", "req.params.categorie_id");
-        console.log(req.params.artiste_id, req.params.categorie_id);
         const { result, error } = await categoryDatamapper.getCategoryByArtistAndId(req.params.artiste_id, req.params.categorie_id);
-
         manageResponse(res, result, error, next);
     },
     // Ajout d'une nouvelle catégorie
@@ -39,13 +36,6 @@ const categoryController = {
         const category_id = req.params.categorie_id;
 
         const {name, description, color} = req.body;
-        console.log("name",name);
-        console.log("description",description);
-        console.log("color",color);
-        console.log("artist_id",artist_id);
-        console.log("category_id",category_id);
-        
-
         const { result, error } = await categoryDatamapper.updateCategoryByArtistAndId(artist_id, category_id, name, description, color);
 
         manageResponse(res, result, error, next)

@@ -28,7 +28,7 @@ export default {
         // get_all_categories est une fonction sql
         const sqlQuery = "SELECT * FROM get_categories_names_by_artist_id($1);";
         const values = [artist_id];
-        // console.log("getCategoriesNamesByArtistId",sqlQuery,values);
+     
        
         return await executeRequest(sqlQuery, values);
     },
@@ -44,7 +44,7 @@ export default {
         // get_category_by_artist_and_id($1, $2) est une fonction sql
         const sqlQuery = "SELECT * FROM get_category_by_artist_id($1,$2);";
         const values = [artist_id, category_id];
-        console.log("datamapper sqlQuery",sqlQuery,values);
+        
 
         return await executeRequest(sqlQuery, values);
     },
@@ -59,7 +59,7 @@ export default {
         // add_category_by_artist_id($1) est une fonction sql
         const sqlQuery = "SELECT * FROM add_category_by_artist_id($1, $2, $3, $4);";
         const values = [artist_id, name, description, color];
-        console.log(sqlQuery,values);
+        
         return await executeRequestWithSingleResult(sqlQuery, values);
     },
     /**
@@ -76,8 +76,7 @@ export default {
         // update_category_by_artist_id($1, $2) est une fonction sql
         const sqlQuery = "SELECT * FROM update_category_by_artist_id($1, $2, $3, $4, $5);";
         const values = [artist_id, category_id, name, description, color];
-        console.log("sqlQuery,values");
-        console.log(sqlQuery,values);
+       
 
         return await executeRequestWithSingleResult(sqlQuery, values);
 

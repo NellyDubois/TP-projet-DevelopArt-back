@@ -7,7 +7,6 @@ const configurationController = {
     async getConfigurationByArtistId(req, res, next) {
         
         const artist_id=req.params.artiste_id;
-        console.log(artist_id);
         const { result, error } = await configurationDatamapper.getConfigurationByArtistId(req.params.artiste_id);
         
         manageResponse(res, result, error, next);
@@ -17,9 +16,6 @@ const configurationController = {
 
         const artist_id=req.params.artiste_id;
         const {font_type, background_color,background_color_nav, cursor, font_color, layout,banner, logo, facebook_flag, insta_flag, twitter_flag, youtube_flag}=req.body;
-        
-        console.log("artiste_id, font_type, background_color, background_color_nav, cursor, font_color, layout, banner, logo, facebook_flag, insta_flag, twitter_flag, youtube_flag");
-        console.log(artist_id, font_type, background_color,background_color_nav, cursor, font_color, layout,banner, logo,  facebook_flag, insta_flag, twitter_flag, youtube_flag);
         
         const { result, error } = await configurationDatamapper.updateConfigurationByArtistId(artist_id, font_type, background_color,background_color_nav, cursor, font_color, layout, banner, logo, facebook_flag, insta_flag, twitter_flag, youtube_flag);
         manageResponse(res, result, error, next);

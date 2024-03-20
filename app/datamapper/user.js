@@ -18,14 +18,9 @@ export default {
      * @param {object} login - informations de connexion de l'utilisateur: email + mot de passe
      * @returns {object} user ou error - utilisateur trouvé avec son id, son firstname et son token
      */
-    async checkUser(login) {                 
-        
-        //on cherche si un utilisateur avec l'email login.email existe dans la table "artist"
-        // équivalent avec une fonction sql de const sqlQuery="SELECT * FROM artist WHERE artist.email=$1"; avec une fonction pgpsql
-        const sqlQuery = "SELECT * FROM check_user($1);";
-     
-        const values = [login];
-        
+    async checkUser(login) {      
+        const sqlQuery = "SELECT * FROM check_user($1);";     
+        const values = [login];        
         return await executeRequestWithSingleResult(sqlQuery,values);        
         }
     ,
@@ -36,16 +31,11 @@ export default {
      * @returns {object} - réponse de la base de données
      */
     async addUser(artist){
-
         // la requête SQL pour insérer un nouvel utilisateur est préparée
         //add_user($1) est une fonction sql
         const sqlQuery = "SELECT * FROM add_user($1);";
-       
         const values = [artist];
-        
-        
         return await executeRequestWithSingleResult(sqlQuery,values);
-
     },
 
      /**

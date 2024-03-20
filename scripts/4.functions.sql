@@ -44,11 +44,11 @@ $$ LANGUAGE plpgsql SECURITY DEFINER;
 
 
 
--- Cette fonction SQL insère un nouvel utilisateur dans la table "artist" avec les données fournies au format JSON.
+-- Cette fonction SQL insère un nouvel utilisateur dans les tables "artist" et artist_details avec les données fournies au format JSON.
 -- Elle retourne les données de l'utilisateur nouvellement ajouté.
 -- u est le nom du paramètre de la fonction qui doit être de type json
 CREATE OR REPLACE FUNCTION add_user(u json) RETURNS artist AS $$
-DECLARE
+DECLARE --Déclaration des variables locales
     new_artist artist;
 BEGIN
     -- Insertion dans la table "artist"
@@ -56,23 +56,23 @@ BEGIN
     (path, lastname, firstname, email, password, biography, role_id, created_at)
     VALUES
     (
-        u->>'path',
+        u->>'path', -- Récupération de la valeur de la clé "path" dans l'objet JSON
         u->>'lastname',
         u->>'firstname',
         u->>'email',
         u->>'password',
         u->>'biography',
-        (u->>'role_id')::integer,
+        (u->>'role_id')::integer,-- Récupération de la valeur de la clé "role_id" dans l'objet JSON et conversion en entier
         NOW() -- Ajout de la date et heure actuelles
     )
-    RETURNING * INTO new_artist;
+    RETURNING * INTO new_artist; -- Récupération des données de l'utilisateur nouvellement ajouté
 
     -- Insertion dans la table "artist_details"
     INSERT INTO "artist_details"
     (birthdate, type, street_no, street_name, zipcode, city, phone, facebook, insta, twitter, youtube, artist_id, created_at)
     VALUES
     (
-        (u->>'birthdate')::date,
+        (u->>'birthdate')::date,-- Récupération de la valeur de la clé "birthdate" dans l'objet JSON et conversion en date
         u->>'type',
         u->>'street_no',
         u->>'street_name',
@@ -83,18 +83,11 @@ BEGIN
         u->>'insta',
         u->>'twitter',
         u->>'youtube',
-        new_artist.id,
+        new_artist.id,-- Utilisation de l'identifiant de l'utilisateur nouvellement ajouté
         NOW() -- Ajout de la date et heure actuelles
     )
-    ;
- -- Sélection des données de l'artiste avec les détails
-    -- SELECT a.*, ad.*
-    -- INTO new_artist2
-    -- FROM "artist" a
-    -- INNER JOIN "artist_details" ad ON a.id = ad.artist_id
-    -- WHERE a.id = new_artist.id;
-    
-    RETURN new_artist;
+    ;   
+    RETURN new_artist;-- Retour des données de l'utilisateur nouvellement ajouté dans un objet JSON
     
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;

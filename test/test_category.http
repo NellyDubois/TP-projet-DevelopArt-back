@@ -35,7 +35,7 @@
 # }
 
 # # # // Route pour tester PATCH /:artiste_id/categories/:categorie_id
-PATCH http://localhost:3000/1/categories/30
+PATCH http://localhost:3000/1/categories/11
 Content-Type:application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.MQ.W6PGTCJ5oubFUOAV8VWOoh8_SzmiMcBzDzWunPTtlKw
 
@@ -43,7 +43,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.MQ.W6PGTCJ5oubFUOAV8VWOoh8_SzmiMcBzDz
     "description": "changment de description"
 }
 # // Route pour tester DELETE /:artiste_id/categories/:categorie_id
-DELETE http://localhost:3000/1/categories/29
-Content-Type:application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.MQ.W6PGTCJ5oubFUOAV8VWOoh8_SzmiMcBzDzWunPTtlKw
+# DELETE http://localhost:3000/1/categories/29
+# Content-Type:application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.MQ.W6PGTCJ5oubFUOAV8VWOoh8_SzmiMcBzDzWunPTtlKw
 

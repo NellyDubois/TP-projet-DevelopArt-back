@@ -154,7 +154,7 @@ const artworkController = {
             return res.status(400).send('Aucun fichier n\'a été téléchargé.');
         }
 
-        const path=`${process.env.BASE_URL_BACK}/upload/${req.file.filename}`;
+        const path=`/upload/${req.file.filename}`;
               
         // Récupérer le nom du fichier depuis req.file.originalname
         const nomFichier = req.file.originalname;

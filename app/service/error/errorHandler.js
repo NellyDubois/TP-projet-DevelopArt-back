@@ -2,8 +2,8 @@
 import debug from "debug";
 debug("error:API");
 
-// // Importation du logger personnalisé
-// import logger from './logger_a_remettre.js';
+// Import du logger personnalisé
+import logger from './logger.js';
 
 // Import de la classe APIError depuis le fichier APIError.js
 import { APIError } from "./APIError.js";
@@ -16,7 +16,7 @@ const errorHandler = (error, _, response, next) => {
     // Affichage du message d'erreur dans la console
     
     // Enregistrement du message d'erreur dans les logs avec le logger personnalisé
-    // logger.log('error', error.message);
+    logger.log('error', error.message);
 
     // Gestion des différentes erreurs
     if (error instanceof APIError) {

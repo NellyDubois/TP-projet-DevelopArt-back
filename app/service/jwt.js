@@ -1,5 +1,8 @@
 import jwt from 'jsonwebtoken';
 
+// Import du logger Winston pour enregistrer les logs
+import logger from './error/logger.js';
+
 export default {
     /**
      * Génération du token JWT
@@ -8,9 +11,14 @@ export default {
      */
     encode(user){        
         //Génération du token JWT: on ne garde que user.id dans le payload jwt.sign pour des questions de sécurité
-        const token= jwt.sign(user.id, process.env.JWT_SECRET );
-        //on retourne le token
-        return token;
+        try {
+            const token= jwt.sign(user.id, process.env.JWT_SECRET );
+            //on retourne le token
+            return token;
+        } catch (error) {
+            logger.error(`Erreur lors de la génération du token JWT : ${error.message}`);
+            throw error;
+        }
     },
     /**
      * Déchiffrage d'un token JWT
@@ -30,6 +38,7 @@ export default {
         }
         //si on a une erreur
         catch(err){
+            logger.error(`Erreur lors du décodage du token JWT : ${error.message}`);
             error = new Error("erreur d'authentification");
         }
         //on retourne le résultat ou l'erreur

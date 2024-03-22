@@ -28,8 +28,14 @@ import contactController from '../controller/contact.js';
 //import du middleware de gestion des erreurs
 import errorHandler from "../service/error/errorHandler.js";
 
+// Import du middleware pour enregistrer les détails des requêtes entrantes
+import requestLogger from '../service/error/requestLogger.js';
+
 // Création du routeur
 const router = Router();
+
+// Middleware pour enregistrer les détails des requêtes entrantes
+router.use(requestLogger);
 
 // Configuration de Multer
 //On crée une nouvelle instance de stockage pour Multer. Le stockage est configuré pour enregistrer les fichiers sur le disque.
@@ -47,8 +53,9 @@ const storage = multer.diskStorage({
   // Configurer Multer avec le stockage personnalisé défini au-dessus
    const upload = multer({ storage: storage });
 
-//pour créer de nouveaux artistes
-/**
+
+    /**
+    * Route pour la création d'un nouvel artiste
     * POST /signup
     * @summary Add one user
     * @tags User
@@ -58,8 +65,7 @@ const storage = multer.diskStorage({
  */
 router.post("/signup",validate(signupShema),userController.signup);
 
-//pour gérer l'authentification des artistes
-/**
+/** Route pour gérer l'authentification des artistes
     * POST /signin
     * @summary Check user
     * @tags User
@@ -69,14 +75,13 @@ router.post("/signup",validate(signupShema),userController.signup);
  */
 router.post("/signin",validate(signinSchema),userController.signin);
 
-// Toutes les routes qui nécessitent d'être authentifié passe par le middleware isArtist: si l'artiste s'est connecté avec
+// Toutes les routes qui nécessitent une authentification passent par le middleware isArtist: si l'artiste s'est connecté avec
 //son email et password alors il a un token qui doit être passé dans le header des requêtes qui nécessitent des droits:
 // par exemple, afficher la page de configuration, modifier les données de config, de l'artiste,...
 
 // Toutes les routes qui commencent par /:artiste_id/oeuvres
 
-// Route pour la récupération une oeuvre d'un artiste
-/**
+/** Route pour la récupération une oeuvre d'un artiste
     * GET /{artiste_id}/oeuvres/{oeuvre_id}
     * @summary Get one artwork
     * @tags Artwork
@@ -88,8 +93,7 @@ router.post("/signin",validate(signinSchema),userController.signin);
  */
 router.get("/:artiste_id(\\d+)/oeuvres/:oeuvre_id(\\d+)", artworkController.getArtworkByArtistAndId);
 
-// Route pour modifier une oeuvre d'un artiste
-/**
+/** Route pour modifier une oeuvre d'un artiste
     * PATCH /{artiste_id}/oeuvres/{oeuvre_id}
     * @summary Update one artwork
     * @tags Artwork
@@ -101,8 +105,7 @@ router.get("/:artiste_id(\\d+)/oeuvres/:oeuvre_id(\\d+)", artworkController.getA
  */
 router.patch("/:artiste_id(\\d+)/oeuvres/:oeuvre_id(\\d+)", isArtist,artworkController.modifyArtworkByArtistAndId);
 
-// Route pour supprimer une oeuvre d'un artiste
-/**
+/** Route pour supprimer une oeuvre d'un artiste
     * DELETE /{artiste_id}/oeuvres/{oeuvre_id}
     * @summary Delete one artwork
     * @tags Artwork
@@ -114,8 +117,7 @@ router.patch("/:artiste_id(\\d+)/oeuvres/:oeuvre_id(\\d+)", isArtist,artworkCont
  */
 router.delete('/:artiste_id(\\d+)/oeuvres/:oeuvre_id(\\d+)', isArtist,artworkController.deleteArtworkByArtistAndId);
 
-// Route pour la récupération de toutes les oeuvres d'un artiste
-/**
+/** Route pour la récupération de toutes les oeuvres d'un artiste
     * GET /{artiste_id}/oeuvres
     * @summary Get all artworks
     * @tags Artwork
@@ -126,8 +128,7 @@ router.delete('/:artiste_id(\\d+)/oeuvres/:oeuvre_id(\\d+)', isArtist,artworkCon
  */
 router.get("/:artiste_id(\\d+)/oeuvres", artworkController.getArworksByArtistId);
 
-// Route pour la récupération des oeuvres pour la home page d'un artiste
-/**
+/** Route pour la récupération des oeuvres pour la home page d'un artiste
     * GET /{artiste_id}/oeuvres-homePage
     * @summary Get homepage artworks
     * @tags Artwork
@@ -137,9 +138,8 @@ router.get("/:artiste_id(\\d+)/oeuvres", artworkController.getArworksByArtistId)
     * @return {ApiError} 404 - Artwork not found - application/json
  */
 router.get("/:artiste_id(\\d+)/oeuvres-homePage", artworkController.getArtworksForHomePage);
-
-// Route pour ajouter des oeuvres d'un artiste
-/**
+ 
+/** Route pour ajouter des oeuvres d'un artiste
     * POST /{artiste_id}/oeuvres
     * @summary Add a new artwork
     * @tags Artwork
@@ -149,9 +149,8 @@ router.get("/:artiste_id(\\d+)/oeuvres-homePage", artworkController.getArtworksF
     * @return {ApiError} 404 - Artwork not found - application/json
  */
 router.post("/:artiste_id(\\d+)/oeuvres", isArtist,artworkController.addArtworkByArtistId);
-
-// Route pour récupérer la configuration d'un artiste
-/**
+ 
+/** Route pour récupérer la configuration d'un artiste
     * GET /{artiste_id}/configuration
     * @summary Get the artist configuration
     * @tags Configuration
@@ -162,8 +161,7 @@ router.post("/:artiste_id(\\d+)/oeuvres", isArtist,artworkController.addArtworkB
  */
 router.get("/:artiste_id(\\d+)/configuration",configurationController.getConfigurationByArtistId);
 
-// Route pour modifier la configuration d'un artiste
-/**
+/** Route pour modifier la configuration d'un artiste
     * PATCH /{artiste_id}/configuration
     * @summary Update the artist configuration
     * @tags Configuration
@@ -174,8 +172,7 @@ router.get("/:artiste_id(\\d+)/configuration",configurationController.getConfigu
  */
 router.patch("/:artiste_id(\\d+)/configuration",isArtist,configurationController.updateConfigurationByArtistId);
 
-// Route pour récupérer les informations d'un artiste
-/**
+/** Route pour récupérer les informations d'un artiste
     * GET /{artiste_id}
     * @summary Get the artist informations
     * @tags Artist
@@ -185,9 +182,8 @@ router.patch("/:artiste_id(\\d+)/configuration",isArtist,configurationController
     * @return {ApiError} 404 - Artist not found - application/json
  */
 router.get("/:artiste_id(\\d+)", artistController.getArtistById);
-
-// Route pour modifier les informations d'un artiste
-/**
+ 
+/** Route pour modifier les informations d'un artiste
     * PATCH /{artiste_id}
     * @summary Update the artist informations
     * @tags Artist
@@ -199,9 +195,7 @@ router.get("/:artiste_id(\\d+)", artistController.getArtistById);
 router.patch("/:artiste_id(\\d+)", isArtist, artistController.updateArtistById);
 
 // Toutes les routes qui commencent par /:artiste_id/categories
-// Routes GET
-// Route pour récupérer les catégories d'un artiste et toutes les oeuvres de chaque catégorie
-/**
+/** Route pour récupérer les catégories d'un artiste et toutes les oeuvres de chaque catégorie
     * GET /{artiste_id}/categories/oeuvres
     * @summary Get all categories with all the artworks
     * @tags Category
@@ -211,8 +205,8 @@ router.patch("/:artiste_id(\\d+)", isArtist, artistController.updateArtistById);
     * @return {ApiError} 404 - Category not found - application/json
  */
 router.get("/:artiste_id(\\d+)/categories/oeuvres", categoryController.getCategoriesByArtistId);
-// Route pour récupérer les noms de catégories d'un artiste 
-/**
+
+/** Route pour récupérer les noms de catégories d'un artiste
     * GET /{artiste_id}/categories
     * @summary Get categories names by artist id
     * @tags Category
@@ -222,8 +216,8 @@ router.get("/:artiste_id(\\d+)/categories/oeuvres", categoryController.getCatego
     * @return {ApiError} 404 - Category not found - application/json
  */
 router.get("/:artiste_id(\\d+)/categories", categoryController.getCategoriesNamesByArtistId);
-// Route pour récupérer les oeuvres d'une catégorie d'un artiste
-/**
+
+/** Route pour récupérer les oeuvres d'une catégorie d'un artiste
     * GET /{artiste_id}/categories/{categorie_id}
     * @summary Get one category
     * @tags Category
@@ -235,9 +229,7 @@ router.get("/:artiste_id(\\d+)/categories", categoryController.getCategoriesName
  */
 router.get("/:artiste_id(\\d+)/categories/:categorie_id(\\d+)", categoryController.getCategoryByArtistAndId);
 
-// Route POST
-// Route pour créer les catégories d'un artiste
-/**
+/** Route pour créer les catégories d'un artiste
     * POST /{artiste_id}/categories
     * @summary Add a new category
     * @tags Category
@@ -248,9 +240,7 @@ router.get("/:artiste_id(\\d+)/categories/:categorie_id(\\d+)", categoryControll
  */
 router.post("/:artiste_id(\\d+)/categories", isArtist,categoryController.addCategoryByArtistId);
 
-// Route PATCH
-// Route pour modifier une catégorie d'un artiste
-/**
+/** / Route pour modifier une catégorie d'un artiste
     * PATCH /{artiste_id}/categories/{categorie_id}
     * @summary Update the category informations
     * @tags Category
@@ -262,9 +252,7 @@ router.post("/:artiste_id(\\d+)/categories", isArtist,categoryController.addCate
  */
 router.patch("/:artiste_id(\\d+)/categories/:categorie_id(\\d+)", isArtist,categoryController.updateCategoryByArtistAndId);
 
-// Route DELETE
-// Route pour supprimer une catégorie d'un artiste
-/**
+/** Route pour supprimer une catégorie d'un artiste
     * DELETE /{artiste_id}/categories/{categorie_id}
     * @summary Delete one category
     * @tags Category
@@ -305,8 +293,6 @@ router.post('/:artiste_id(\\d+)/oeuvres/telechargement-oeuvre', upload.single('f
     * @return {ApiError} 404 - Contact not found - application/json
  */
 router.post("/:artiste_id(\\d+)/envoyer-email", contactController.sendEmail);
-
-
 
 //Route de gestion des erreurs
 router.use(errorHandler);

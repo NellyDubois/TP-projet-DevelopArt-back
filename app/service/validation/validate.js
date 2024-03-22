@@ -1,6 +1,9 @@
 //Import de la classe APIError pour générer des erreurs personnalisées
 import { APIError } from '../error/APIError.js';
 
+// Import du logger Winston pour enregistrer les logs
+import logger from '../error/logger.js';
+
 //fonction validate est un middleware utilisé dans Express pour valider les données des requêtes entrantes en fonction d'un schéma spécifié
 //la fonction a 2 paramètres : le schéma de validation des données et subKey clé optionnellle sur laquelle on veut valider les données
 export function validate(schema, subKey = null) {
@@ -15,6 +18,7 @@ export function validate(schema, subKey = null) {
 
         //Si une erreur de validation est détectée, une instance d'APIError est créée avec le message d'erreur de validation, et cette erreur est transmise au middleware suivant.
         if (validationError) {
+            logger.error(`Erreur de validation : ${validationError.message}`);
             const error = new APIError(validationError.message, 400);
             next(error);
             return;

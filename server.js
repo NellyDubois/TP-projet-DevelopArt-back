@@ -14,12 +14,21 @@ import apiDocs from "./app/service/apiDocs.js";
 import router from "./app/router/index.js";
 
 // Création de l'application Express
-const app = express()
+const app = express();
+
+// Import du logger Winston pour enregistrer les logs (vesrion différente en prod et en dev)
+import logger from './app/service/error/logger.js';
+
+// Fonction pour formater la date et l'heure actuelles
+const getCurrentDateTime = () => {
+    const currentDate = new Date();
+    return currentDate.toISOString();
+};
 
 // Configuration des options CORS pour autoriser les requêtes provenant de l'URL du serveur frontend
 const corsOptions = {
     origin: [`${process.env.BASE_URL_FRONT}`,`${process.env.BASE_URL_FRONT_2}`],
-    optionsSuccessStatus: 200 // code succès 200 plutôt que 204 à cause de navigateurs comme IE11
+    //optionsSuccessStatus: 200 // code succès 200 plutôt que 204 à cause de navigateurs comme IE11
 };
 
 // Les CORS permettent de bloquer des requêtes qui arrivent depuis d'autres URL
@@ -40,6 +49,9 @@ app.use(express.json());
 
 // Middleware pour utiliser les routeurs 
 app.use(router);
+
+// Pour inclure l'horodatage dans les journaux de log
+logger.info(`[${getCurrentDateTime()}] - Démarrage du serveur Express.`);
 
 // Définition du port sur lequel le serveur va écouter (dans fichier .env) ou le port 3000 par défaut
 const PORT = process.env.PORT || 3000;

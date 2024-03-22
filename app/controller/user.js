@@ -1,7 +1,7 @@
 import { manageResponse } from "../utils/controllerUtils.js";
 import userDatamapper from "../datamapper/user.js";
 import jwt from "../service/jwt.js";
-// import logger from '../service/error/logger.js';
+import logger from '../service/error/logger.js';
 
 import { APIError } from "../service/error/APIError.js";
 
@@ -25,7 +25,7 @@ export default {
         //Si l'utilisateur n'est pas trouvé dans la BDD, on envoie le message "Les identifiants sont incorrects"
         if (result && result.check_user === null) {
             error = new APIError("Les identifiants sont incorrects", 401);
-            //logger.info(`Les identifiants sont incorrects`);
+            logger.info(`Les identifiants sont incorrects`);
             next(error);
         }
 
@@ -33,36 +33,39 @@ export default {
        else{
             //on récupère les données de l'utilisateur
             const user=result.check_user;
-        
-            // Comparaison du mot de passe retourné par la BDD et celui fourni via le formulaire
-            //le booléen isPasswordMatch=true si le mdp est le bon
-            const isPasswordMatch = await passwordMatch(login.password, user.password);
+            try{
+                // Comparaison du mot de passe retourné par la BDD et celui fourni via le formulaire
+                //le booléen isPasswordMatch=true si le mdp est le bon
+                const isPasswordMatch = await passwordMatch(login.password, user.password);
 
-            //si l'utilisateur existe et que le mot de passe est correct,
-            //on génère un token JWT et on l'attribue au user
-            if (user && isPasswordMatch) {
-                const token = jwt.encode(user);
-                user.token = token;
+                //si l'utilisateur existe et que le mot de passe est correct,
+                //on génère un token JWT et on l'attribue au user
+                if (user && isPasswordMatch) {
+                    const token = jwt.encode(user);
+                    user.token = token;
+                    
+                //on ne garde que quelques données de l'utilisateur
+                const userDataFront = {
+                    user_id: user.id,
+                    token: user.token,
+                    firstname: user.firstname
+                };
+
+                // Journalisation de la connexion de l'utilisateur
+                logger.info(`L'artiste ${user.firstname} s'est connecté.`);
                 
-            //on ne garde que quelques données de l'utilisateur
-            const userDataFront = {
-                user_id: user.id,
-                token: user.token,
-                firstname: user.firstname
-            };
+                //envoi de l'id, du prénom et du token de l'utilisateur
+                res.json(userDataFront);
 
-            // Journalisation de la connexion de l'utilisateur
-            // logger.info(`L'artiste ${user.firstname} s'est connecté.`);
-            
-            //envoi de l'id, du prénom et du token de l'utilisateur
-            res.json(userDataFront);
-
-        } else {
-            //échec d'authentification: message d'erreur 401 non autorisé
-            error = new APIError("Les identifiants sont incorrects", 401);
-            // logger.info(`Les identifiants de ${user.firstname} sont incorrects`);
-            next(error);
-        }
+            } else {
+                //échec d'authentification: message d'erreur 401 non autorisé
+                error = new APIError("Les identifiants sont incorrects", 401);
+                logger.info(`Les identifiants de ${user.firstname} sont incorrects`);
+                next(error);
+            }
+            }catch (error){// Gestion des erreurs survenues lors de la comparaison des mots de passe
+                logger.error(`Erreur lors de la comparaison des mots de passe : ${error.message}`);
+                next(error);}    
     }
     },
      

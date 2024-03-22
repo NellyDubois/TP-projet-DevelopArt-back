@@ -3,6 +3,9 @@
 // Import des modules nécessaires depuis Winston
 import { addColors, format as _format, transports as _transports, createLogger } from 'winston';
 
+// Import du module Winston-Daily-Rotate-File pour la vider les logs au bout de 10 jours
+import DailyRotateFile from 'winston-daily-rotate-file';
+
 // Définition des niveaux de gravité des logs et de leur ordre
 const levels = {
   error: 0,
@@ -47,7 +50,11 @@ const transports = [
     filename: 'app/logs/error.log', // Enregistre les logs d'erreur dans ce fichier
         level: 'error', // Spécifie le niveau de gravité pour ce transport
   }),
-
+  new DailyRotateFile({
+    filename: 'app/logs/%DATE%.log',
+    datePattern: 'YYYY-MM-DD',
+    maxFiles: process.env.NODE_ENV === 'development' ? '2d' : '7d', // Différenciation entre 2 jours en développement et 7 jours en production
+  }),
 ];
 
 // Création du logger avec la configuration définie

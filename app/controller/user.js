@@ -65,7 +65,6 @@ export default {
         }
     }
     },
-
      
     //!dans un premier temps, ce sera le super admin qui créera les comptes des artistes
     /**

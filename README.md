@@ -1,4 +1,4 @@
-# projet-galerie-personnalisable-back
+# Projet DevelopArt back
 
 ## Résumé :
 

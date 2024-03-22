@@ -14,9 +14,9 @@ export default {
      * @param {object} req - requête.
      * @param {object} res - réponse.
      * @param {Function} next - prochain middleware.
+     * @returns {object} - Renvoie les données de l'utilisateur connecté.
      */
-    async signin(req, res, next) {
-                
+    async signin(req, res, next) {                
         //le login inclut l'email et le mot de passe du formulaire de connexion
         const login = req.body;
         // Récupération du user en BDD via son email
@@ -68,7 +68,14 @@ export default {
 
      
     //!dans un premier temps, ce sera le super admin qui créera les comptes des artistes
-    // Fonction asynchrone pour créer un nouvel artiste
+    /**
+     * Méthode pour la création d'un nouvel artiste.
+     * @async
+     * @param {object} req - requête.
+     * @param {object} res - réponse.
+     * @param {Function} next - prochain middleware.
+     * @returns {object} - Renvoie les données de l'artiste ajouté.
+     */
     async signup(req, res, next) {
         // Récupération des données de l'artiste à partir du body de la requête HTTP
         const artist = req.body;
@@ -95,22 +102,17 @@ export default {
      * @param {object} req - Requête.
      * @param {object} res - Réponse.
      * @param {Function} next - Prochain middleware.
+     * @returns {object} - Renvoie les informations de l'utilisateur actuel.
      */
     async getCurrentUser(req, res, next) {
         // Récupération du token
         const token = req.get("Authorization");
         // Vérification du token
-        const user = jwt.decode(token);
-
-        
-
+        const user = jwt.decode(token);    
         // Récupère les données de l'utilisateur dans la base de données en utilisant l'identifiant de l'utilisateur extrait du token JWT.
         const { error, result } = await userDatamapper.getUser(user.id);
-
         // Extrait les données de l'utilisateur à partir du résultat de la fonction getUser dans le datamapper
         const userBDD = result.get_user;
-
         manageResponse(res, userBDD, error, next);
-    }
-    
+    }    
 };

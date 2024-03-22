@@ -29,7 +29,6 @@ export default {
         // get_configuration_by_artist_id($1) est une fonction sql
         const sqlQuery = "SELECT * FROM get_configuration_by_artist_id($1)";
         const values = [artiste_id];
-
         return await executeRequestWithSingleResult(sqlQuery, values);
     },
 

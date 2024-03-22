@@ -4,9 +4,15 @@ import 'dotenv/config';
 import nodemailer from 'nodemailer';
 
 // Création du controller pour le formulaire de contact
-const contactController = {
-    
-    // Méthode pour envoyer un email
+const contactController = {     
+    /**
+     * Méthode pour l'envoi d'un email'.
+     * @async
+     * @param {object} req - requête.
+     * @param {object} res - réponse.
+     * @param {Function} next - prochain middleware.
+     * @returns {object} - Renvoie un message de confirmation de l'envoi de l'email.
+     */
     async sendEmail(req, res, next) {
         // Configuration du transporteur avec les informations de service de messagerie (service), hôte (host), port (port), authentification (auth) 
         const transporter = nodemailer.createTransport({

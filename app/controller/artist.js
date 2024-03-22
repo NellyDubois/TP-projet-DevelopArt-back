@@ -1,26 +1,35 @@
 import artistDatamapper from "../datamapper/artist.js";
 import { manageResponse } from "../utils/controllerUtils.js";
 
-import { APIError } from "../service/error/APIError.js";
-
-const artistController = {
-    // Récupération d'un artiste par son id
+// Définition du contrôleur pour les artistes
+const artistController = {    
+    /**
+     * Récupère les informations d'un artiste à partir de son id.
+     * @async
+     * @param {object} req - Requête.
+     * @param {object} res - Réponse.
+     * @param {Function} next - Prochain middleware.
+     * @returns {object} - Renvoie les informations de l'artiste.
+     */
     async getArtistById(req, res, next) {
         const { result, error } = await artistDatamapper.getArtistById(req.params.artiste_id);
-        
-        manageResponse(res, result, error, next);
+                manageResponse(res, result, error, next);
     },
-
-
-    // Modification des informations d'un artiste dans la table artist et artist_details, par son id
+    /**
+     * Méthode pour la mise à jour des informations d'un artiste.
+     * @async
+     * @param {object} req - requête.
+     * @param {object} res - réponse.
+     * @param {Function} next - prochain middleware.
+     * @returns {object} - Renvoie un message de confirmation de la mise à jour des informations de l'artiste.
+     */
     async updateArtistById(req, res, next) {
-
+        // Récupération de l'id de l'artiste
         const artiste_id = req.params.artiste_id;
+        // Récupération des données de l'artiste
         const { path, lastname, firstname, email, password, biography, birthdate, type, street_no, street_name, zipcode, city, phone, facebook, insta, twitter, youtube} = req.body;
-           
+        // Mise à jour des informations de l'artiste dans la base de données   
         const { result, error } = await artistDatamapper.updateArtistById(artiste_id, path, lastname, firstname, email, password, biography, birthdate, type, street_no, street_name, zipcode, city, phone, facebook, insta, twitter, youtube);
-        // res.status(200).json({ message: "Informations de l'artiste mises à jour avec succès." });
-        
         manageResponse(res, result, error, next);
     }
 };

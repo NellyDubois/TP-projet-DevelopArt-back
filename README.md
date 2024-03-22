@@ -80,17 +80,13 @@ cd DevelopArt-BACK
 ```bash
 npm install
 ```
-- Configuration du fichier .env
+- Configurez le fichier .env
   - Créez un fichier .env à la racine du projet à partir du fichier .env.example
     ```bash
     cp .env.example .env
     ```
   - renseigner les valeurs dans le fichier .env    
 
-- Installer les dépendances npm
-```bash
-npm i
-```
 - Lancez le serveur en exécutant la commande suivante :
 ```bash
   node server.js

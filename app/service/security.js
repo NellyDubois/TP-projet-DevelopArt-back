@@ -30,7 +30,7 @@ export function isArtist(req, res, next) {
         const { result, error } = jwt.decode(token);
 
         //on transforme result en nombre
-        const resultNr=Number(result);
+        const resultNr=Number(result.id);
 
         // Vérification de l'existence du résultat
         if (resultNr) {            

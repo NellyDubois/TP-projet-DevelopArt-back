@@ -31,7 +31,7 @@ export function isArtist(req, res, next) {
         
         //on transforme result en nombre
         const resultNr=Number(result.id);
-        
+
         // Vérification de l'existence du résultat
         if (resultNr) {            
             // Vérification du rôle de l'utilisateur: artiste=1 ou simple visiteur?

@@ -1,3 +1,4 @@
+// Import du module jsonwebtoken pour la gestion des tokens JWT
 import jwt from 'jsonwebtoken';
 
 // Import du logger Winston pour enregistrer les logs
@@ -11,8 +12,9 @@ export default {
      */
     encode(user){        
         //Génération du token JWT: on ne garde que user.id dans le payload jwt.sign pour des questions de sécurité
+        //Pour des raisons de sécurité, on ajoute la clé secrète JWT_SECRET et une durée de validité de 2h
         try {
-            const token= jwt.sign(user.id, process.env.JWT_SECRET );
+            const token= jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '2h' });
             //on retourne le token
             return token;
         } catch (error) {
@@ -38,8 +40,9 @@ export default {
         }
         //si on a une erreur
         catch(err){
-            logger.error(`Erreur lors du décodage du token JWT : ${error.message}`);
+            logger.error(`Erreur lors du décodage du token JWT : ${err.message}`);
             error = new Error("erreur d'authentification");
+            error.status = 401; //pour identifier erreur d'authentification
         }
         //on retourne le résultat ou l'erreur
         return {result,error};

@@ -16,7 +16,7 @@ export function isArtist(req, res, next) {
 
     // Récupération du header Authorization de la requête
     const authorizationHeader = req.get("Authorization");
-
+    
     // Vérification de l'existence du header Authorization
     if (authorizationHeader !== null && authorizationHeader !== undefined) {
         // Vérification du format du header Authorization
@@ -25,13 +25,13 @@ export function isArtist(req, res, next) {
         }
         //on extrait le token du header en enlevant Bearer
         const token = authorizationHeader.split(" ")[1];
-    
+            
         // Vérification du token
         const { result, error } = jwt.decode(token);
-
+        
         //on transforme result en nombre
         const resultNr=Number(result.id);
-
+        
         // Vérification de l'existence du résultat
         if (resultNr) {            
             // Vérification du rôle de l'utilisateur: artiste=1 ou simple visiteur?

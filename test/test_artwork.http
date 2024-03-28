@@ -11,28 +11,33 @@ COntent-Type:application/json
 //route pour tester GET/:artiste_id/oeuvres/:oeuvre_id
 //Récupérer les détails de l’oeuvre par son id
 
-# GET http://localhost:3000/1/oeuvres/60
+# GET http://localhost:3000/1/oeuvres/10
 # COntent-Type:application/json
 
 
-# PATCH http://localhost:3000/1/oeuvres/60
+# PATCH http://localhost:3000/1/oeuvres/10
 # Content-Type:application/json
-# Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.MQ.W6PGTCJ5oubFUOAV8VWOoh8_SzmiMcBzDzWunPTtlKw
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzExNjU4ODc0LCJleHAiOjE3MTE2NjYwNzR9.DkEYf4JgiTi_v5ZCwwsjNQCtuTLMOj06lnsrjJrtYig
 
 # {
-#   "name": "Rochelle",
-#   "description": "photo de Rochelle Flatley",
-#   "production_year": "2020-08-10T22:00:00.000Z",
-#   "technique": "Sepia",
-#   "width": 20,
-#   "height": 90,
-#   "media": "papier mat",
-#   "framing": true,
-#   "quote": "la beauté...",
-#   "path": "https://media.istockphoto.com/id/496619649/fr/photo/beaut%C3%A9-asiatique.jpg?s=2048x2048&w=is&k=20&c=-czWG2a8ohzEgBDXXujSNFWvM0W8LBinsp8Iy2fX1oo=",
+#   "id": 10,
+#   "name": "Empire State Building",
+#   "description": "Empire state building en noir et blanc",
+#   "production_year": "2024-01-31T23:00:00.000Z",
+#   "technique": "Photo",
+#   "width": 40,
+#   "height": 50,
+#   "media": "Papier brillant",
+#   "framing": false,
+#   "quote": "L'Empire State Building, géant de l'acier et du béton, s'élève vers le ciel de New York tel un phare de modernité et de progrès, symbole de la grandeur et de la puissance de la ville qui ne dort jamais.",
+#   "path": "/upload/pexels-nextvoyage-2019546.jpg",
 #   "orientation": "portrait",
-#   "position": 1,
-#   "categories": "Personnes,Mariage"   
+#   "position": 2,
+#   "homepage_flag": false,
+#   "artist_id": 1,
+#   "categories": [
+#     "Monuments"
+#   ]
 # }
 
 

@@ -162,3 +162,17 @@
 28-03-2024 21:56:45:5645 [32minfo[39m: [32mRequête GET /1/categories - IP: ::1[39m
 28-03-2024 21:56:45:5645 [32minfo[39m: [32mRequête GET /1/oeuvres - IP: ::1[39m
 28-03-2024 21:56:55:5655 [32minfo[39m: [32mRequête PATCH /1/oeuvres/8 - IP: ::1[39m
+28-03-2024 22:03:04:34 [32minfo[39m: [32m[2024-03-28T21:03:04.275Z] - Démarrage du serveur Express.[39m
+28-03-2024 22:03:10:310 [32minfo[39m: [32mRequête GET /1/oeuvres-homePage - IP: ::1[39m
+28-03-2024 22:03:10:310 [32minfo[39m: [32mRequête GET /1 - IP: ::1[39m
+28-03-2024 22:03:10:310 [32minfo[39m: [32mRequête GET /1/categories/oeuvres - IP: ::1[39m
+28-03-2024 22:03:10:310 [32minfo[39m: [32mRequête GET /1/configuration - IP: ::1[39m
+28-03-2024 22:03:10:310 [32minfo[39m: [32mRequête GET /1/categories - IP: ::1[39m
+28-03-2024 22:03:12:312 [32minfo[39m: [32mRequête PATCH /1/configuration - IP: ::1[39m
+28-03-2024 22:03:21:321 [32minfo[39m: [32mRequête GET /1/categories - IP: ::1[39m
+28-03-2024 22:03:21:321 [32minfo[39m: [32mRequête GET /1/oeuvres - IP: ::1[39m
+28-03-2024 22:03:29:329 [32minfo[39m: [32mRequête PATCH /1/oeuvres/8 - IP: ::1[39m
+28-03-2024 22:04:00:40 [32minfo[39m: [32mRequête GET /1/categories - IP: ::1[39m
+28-03-2024 22:04:00:40 [32minfo[39m: [32mRequête GET /1/oeuvres - IP: ::1[39m
+28-03-2024 22:23:33:2333 [32minfo[39m: [32m[2024-03-28T21:23:33.311Z] - Démarrage du serveur Express.[39m
+28-03-2024 22:23:34:2334 [32minfo[39m: [32mRequête GET /1/oeuvres - IP: ::ffff:127.0.0.1[39m

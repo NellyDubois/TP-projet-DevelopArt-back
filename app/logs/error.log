@@ -9,3 +9,35 @@
 28-03-2024 21:54:02:542 [31merror[39m: [31mAccès non autorisé[39m
 28-03-2024 21:55:13:5513 [31merror[39m: [31mAccès non autorisé[39m
 28-03-2024 21:55:30:5530 [31merror[39m: [31mAccès non autorisé[39m
+29-03-2024 14:24:34:2434 [31merror[39m: [31mLes identifiants sont incorrects[39m
+29-03-2024 14:33:45:3345 [31merror[39m: [31mErreur de validation : "password" with value "wrongxxxxx" fails to match the required pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,12}$/[39m
+29-03-2024 14:33:45:3345 [31merror[39m: [31m"password" with value "wrongxxxxx" fails to match the required pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,12}$/[39m
+29-03-2024 14:34:00:340 [31merror[39m: [31mErreur de validation : "password" with value "wrongxxxxx" fails to match the required pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,12}$/[39m
+29-03-2024 14:34:00:340 [31merror[39m: [31m"password" with value "wrongxxxxx" fails to match the required pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,12}$/[39m
+29-03-2024 14:34:14:3414 [31merror[39m: [31mErreur de validation : "password" with value "wrongxxxxx@" fails to match the required pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,12}$/[39m
+29-03-2024 14:34:14:3414 [31merror[39m: [31m"password" with value "wrongxxxxx@" fails to match the required pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,12}$/[39m
+29-03-2024 14:34:22:3422 [31merror[39m: [31mErreur de validation : "password" with value "wrongxxxxx1@" fails to match the required pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,12}$/[39m
+29-03-2024 14:34:22:3422 [31merror[39m: [31m"password" with value "wrongxxxxx1@" fails to match the required pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,12}$/[39m
+29-03-2024 14:34:46:3446 [31merror[39m: [31mErreur de validation : "password" with value "xxxxxx!19" fails to match the required pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,12}$/[39m
+29-03-2024 14:34:46:3446 [31merror[39m: [31m"password" with value "xxxxxx!19" fails to match the required pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,12}$/[39m
+29-03-2024 14:35:34:3534 [31merror[39m: [31mLes identifiants sont incorrects[39m
+29-03-2024 14:48:06:486 [31merror[39m: [31mduplicate key value violates unique constraint "artist_email_key"[39m
+29-03-2024 14:50:37:5037 [31merror[39m: [31mduplicate key value violates unique constraint "artist_email_key"[39m
+29-03-2024 14:50:46:5046 [31merror[39m: [31mduplicate key value violates unique constraint "artist_email_key"[39m
+29-03-2024 14:50:54:5054 [31merror[39m: [31mduplicate key value violates unique constraint "artist_email_key"[39m
+29-03-2024 14:51:19:5119 [31merror[39m: [31mErreur de validation : "path" is required[39m
+29-03-2024 14:51:19:5119 [31merror[39m: [31m"path" is required[39m
+29-03-2024 14:51:41:5141 [31merror[39m: [31mduplicate key value violates unique constraint "artist_email_key"[39m
+29-03-2024 14:52:11:5211 [31merror[39m: [31mduplicate key value violates unique constraint "artist_email_key"[39m
+29-03-2024 15:10:40:1040 [31merror[39m: [31mErreur de validation : "value" must have 2 keys[39m
+29-03-2024 15:10:40:1040 [31merror[39m: [31m"value" must have 2 keys[39m
+29-03-2024 15:10:57:1057 [31merror[39m: [31mErreur de validation : "value" must have 2 keys[39m
+29-03-2024 15:10:57:1057 [31merror[39m: [31m"value" must have 2 keys[39m
+29-03-2024 15:11:25:1125 [31merror[39m: [31mErreur de validation : "value" must have 2 keys[39m
+29-03-2024 15:11:25:1125 [31merror[39m: [31m"value" must have 2 keys[39m
+29-03-2024 15:12:15:1215 [31merror[39m: [31mErreur de validation : "value" must have 2 keys[39m
+29-03-2024 15:12:15:1215 [31merror[39m: [31m"value" must have 2 keys[39m
+29-03-2024 15:37:28:3728 [31merror[39m: [31mAccès non autorisé[39m
+29-03-2024 19:40:56:4056 [31merror[39m: [31mAccès non autorisé[39m
+30-03-2024 15:40:18:4018 [31merror[39m: [31mAccès non autorisé[39m
+30-03-2024 15:40:20:4020 [31merror[39m: [31mAccès non autorisé[39m

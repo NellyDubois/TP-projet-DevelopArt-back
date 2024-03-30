@@ -1,6 +1,6 @@
 # # //route pour tester GET /:artiste_id/oeuvres
-GET http://localhost:3000/1/oeuvres
-COntent-Type:application/json
+# GET http://localhost:3000/1/oeuvres
+# COntent-Type:application/json
 
 #Récupération des 3 oeuvres pour la page d'accueil
 # GET http://localhost:3000/1/oeuvres-homePage
@@ -11,8 +11,8 @@ COntent-Type:application/json
 //route pour tester GET/:artiste_id/oeuvres/:oeuvre_id
 //Récupérer les détails de l’oeuvre par son id
 
-# GET http://localhost:3000/1/oeuvres/10
-# COntent-Type:application/json
+GET http://localhost:3000/1/oeuvres/10
+COntent-Type:application/json
 
 
 # PATCH http://localhost:3000/1/oeuvres/10

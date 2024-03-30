@@ -1,0 +1,166 @@
+29-03-2024 10:39:42:3942 [32minfo[39m: [32m[2024-03-29T09:39:42.244Z] - Démarrage du serveur Express.[39m
+29-03-2024 10:39:51:3951 [32minfo[39m: [32mRequête GET /1/oeuvres-homePage - IP: ::1[39m
+29-03-2024 10:39:51:3951 [32minfo[39m: [32mRequête GET /1 - IP: ::1[39m
+29-03-2024 10:39:51:3951 [32minfo[39m: [32mRequête GET /1/configuration - IP: ::1[39m
+29-03-2024 10:39:51:3951 [32minfo[39m: [32mRequête GET /1/categories/oeuvres - IP: ::1[39m
+29-03-2024 10:39:51:3951 [32minfo[39m: [32mRequête GET /1/categories - IP: ::1[39m
+29-03-2024 10:44:14:4414 [32minfo[39m: [32mRequête GET /1/oeuvres-homePage - IP: ::1[39m
+29-03-2024 10:44:14:4414 [32minfo[39m: [32mRequête GET /1 - IP: ::1[39m
+29-03-2024 10:44:14:4414 [32minfo[39m: [32mRequête GET /1/categories/oeuvres - IP: ::1[39m
+29-03-2024 10:44:14:4414 [32minfo[39m: [32mRequête GET /1/configuration - IP: ::1[39m
+29-03-2024 10:44:14:4414 [32minfo[39m: [32mRequête GET /1/categories - IP: ::1[39m
+29-03-2024 10:44:20:4420 [32minfo[39m: [32mRequête GET /1/oeuvres-homePage - IP: ::1[39m
+29-03-2024 10:44:20:4420 [32minfo[39m: [32mRequête GET /1 - IP: ::1[39m
+29-03-2024 10:44:20:4420 [32minfo[39m: [32mRequête GET /1/categories/oeuvres - IP: ::1[39m
+29-03-2024 10:44:20:4420 [32minfo[39m: [32mRequête GET /1/configuration - IP: ::1[39m
+29-03-2024 10:44:20:4420 [32minfo[39m: [32mRequête GET /1/categories - IP: ::1[39m
+29-03-2024 10:44:21:4421 [32minfo[39m: [32mRequête GET /1/oeuvres-homePage - IP: ::1[39m
+29-03-2024 10:44:21:4421 [32minfo[39m: [32mRequête GET /1 - IP: ::1[39m
+29-03-2024 10:44:21:4421 [32minfo[39m: [32mRequête GET /1/categories/oeuvres - IP: ::1[39m
+29-03-2024 10:44:21:4421 [32minfo[39m: [32mRequête GET /1/configuration - IP: ::1[39m
+29-03-2024 10:44:21:4421 [32minfo[39m: [32mRequête GET /1/categories - IP: ::1[39m
+29-03-2024 10:44:23:4423 [32minfo[39m: [32mRequête GET /1/categories - IP: ::1[39m
+29-03-2024 10:44:23:4423 [32minfo[39m: [32mRequête GET /1/oeuvres - IP: ::1[39m
+29-03-2024 10:44:42:4442 [32minfo[39m: [32mRequête GET /1/oeuvres-homePage - IP: ::1[39m
+29-03-2024 10:44:42:4442 [32minfo[39m: [32mRequête GET /1 - IP: ::1[39m
+29-03-2024 10:44:42:4442 [32minfo[39m: [32mRequête GET /1/categories/oeuvres - IP: ::1[39m
+29-03-2024 10:44:42:4442 [32minfo[39m: [32mRequête GET /1/configuration - IP: ::1[39m
+29-03-2024 10:44:42:4442 [32minfo[39m: [32mRequête GET /1/categories - IP: ::1[39m
+29-03-2024 10:44:42:4442 [32minfo[39m: [32mRequête GET /1/oeuvres-homePage - IP: ::1[39m
+29-03-2024 10:44:42:4442 [32minfo[39m: [32mRequête GET /1 - IP: ::1[39m
+29-03-2024 10:44:42:4442 [32minfo[39m: [32mRequête GET /1/categories/oeuvres - IP: ::1[39m
+29-03-2024 10:44:42:4442 [32minfo[39m: [32mRequête GET /1/configuration - IP: ::1[39m
+29-03-2024 10:44:42:4442 [32minfo[39m: [32mRequête GET /1/categories - IP: ::1[39m
+29-03-2024 14:24:27:2427 [32minfo[39m: [32m[2024-03-29T13:24:27.694Z] - Démarrage du serveur Express.[39m
+29-03-2024 14:24:34:2434 [32minfo[39m: [32mRequête POST /signin - IP: ::ffff:127.0.0.1[39m
+29-03-2024 14:24:34:2434 [32minfo[39m: [32mLes identifiants sont incorrects[39m
+29-03-2024 14:24:34:2434 [31merror[39m: [31mLes identifiants sont incorrects[39m
+29-03-2024 14:26:45:2645 [32minfo[39m: [32mRequête POST /signin - IP: ::ffff:127.0.0.1[39m
+29-03-2024 14:26:46:2646 [32minfo[39m: [32mL'artiste Emilie s'est connecté.[39m
+29-03-2024 14:27:12:2712 [32minfo[39m: [32m[2024-03-29T13:27:12.063Z] - Démarrage du serveur Express.[39m
+29-03-2024 14:27:18:2718 [32minfo[39m: [32mRequête POST /signin - IP: ::ffff:127.0.0.1[39m
+29-03-2024 14:27:18:2718 [32minfo[39m: [32mL'artiste Emilie s'est connecté.[39m
+29-03-2024 14:32:16:3216 [32minfo[39m: [32mRequête POST /signin - IP: ::ffff:127.0.0.1[39m
+29-03-2024 14:32:17:3217 [32minfo[39m: [32mL'artiste Emilie s'est connecté.[39m
+29-03-2024 14:32:29:3229 [32minfo[39m: [32mRequête POST /signin - IP: ::ffff:127.0.0.1[39m
+29-03-2024 14:32:29:3229 [32minfo[39m: [32mL'artiste Emilie s'est connecté.[39m
+29-03-2024 14:33:45:3345 [32minfo[39m: [32mRequête POST /signin - IP: ::ffff:127.0.0.1[39m
+29-03-2024 14:33:45:3345 [31merror[39m: [31mErreur de validation : "password" with value "wrongxxxxx" fails to match the required pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,12}$/[39m
+29-03-2024 14:33:45:3345 [31merror[39m: [31m"password" with value "wrongxxxxx" fails to match the required pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,12}$/[39m
+29-03-2024 14:34:00:340 [32minfo[39m: [32mRequête POST /signin - IP: ::ffff:127.0.0.1[39m
+29-03-2024 14:34:00:340 [31merror[39m: [31mErreur de validation : "password" with value "wrongxxxxx" fails to match the required pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,12}$/[39m
+29-03-2024 14:34:00:340 [31merror[39m: [31m"password" with value "wrongxxxxx" fails to match the required pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,12}$/[39m
+29-03-2024 14:34:14:3414 [32minfo[39m: [32mRequête POST /signin - IP: ::ffff:127.0.0.1[39m
+29-03-2024 14:34:14:3414 [31merror[39m: [31mErreur de validation : "password" with value "wrongxxxxx@" fails to match the required pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,12}$/[39m
+29-03-2024 14:34:14:3414 [31merror[39m: [31m"password" with value "wrongxxxxx@" fails to match the required pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,12}$/[39m
+29-03-2024 14:34:22:3422 [32minfo[39m: [32mRequête POST /signin - IP: ::ffff:127.0.0.1[39m
+29-03-2024 14:34:22:3422 [31merror[39m: [31mErreur de validation : "password" with value "wrongxxxxx1@" fails to match the required pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,12}$/[39m
+29-03-2024 14:34:22:3422 [31merror[39m: [31m"password" with value "wrongxxxxx1@" fails to match the required pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,12}$/[39m
+29-03-2024 14:34:46:3446 [32minfo[39m: [32mRequête POST /signin - IP: ::ffff:127.0.0.1[39m
+29-03-2024 14:34:46:3446 [31merror[39m: [31mErreur de validation : "password" with value "xxxxxx!19" fails to match the required pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,12}$/[39m
+29-03-2024 14:34:46:3446 [31merror[39m: [31m"password" with value "xxxxxx!19" fails to match the required pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,12}$/[39m
+29-03-2024 14:35:34:3534 [32minfo[39m: [32mRequête POST /signin - IP: ::ffff:127.0.0.1[39m
+29-03-2024 14:35:34:3534 [32minfo[39m: [32mLes identifiants de Emilie sont incorrects[39m
+29-03-2024 14:35:34:3534 [31merror[39m: [31mLes identifiants sont incorrects[39m
+29-03-2024 14:48:05:485 [32minfo[39m: [32m[2024-03-29T13:48:05.059Z] - Démarrage du serveur Express.[39m
+29-03-2024 14:48:06:486 [32minfo[39m: [32mRequête POST /signup - IP: ::ffff:127.0.0.1[39m
+29-03-2024 14:48:06:486 [31merror[39m: [31mduplicate key value violates unique constraint "artist_email_key"[39m
+29-03-2024 14:48:25:4825 [32minfo[39m: [32mRequête POST /signup - IP: ::ffff:127.0.0.1[39m
+29-03-2024 14:50:37:5037 [32minfo[39m: [32mRequête POST /signup - IP: ::ffff:127.0.0.1[39m
+29-03-2024 14:50:37:5037 [31merror[39m: [31mduplicate key value violates unique constraint "artist_email_key"[39m
+29-03-2024 14:50:45:5045 [32minfo[39m: [32mRequête POST /signup - IP: ::ffff:127.0.0.1[39m
+29-03-2024 14:50:46:5046 [31merror[39m: [31mduplicate key value violates unique constraint "artist_email_key"[39m
+29-03-2024 14:50:54:5054 [32minfo[39m: [32mRequête POST /signup - IP: ::ffff:127.0.0.1[39m
+29-03-2024 14:50:54:5054 [31merror[39m: [31mduplicate key value violates unique constraint "artist_email_key"[39m
+29-03-2024 14:51:19:5119 [32minfo[39m: [32mRequête POST /signup - IP: ::ffff:127.0.0.1[39m
+29-03-2024 14:51:19:5119 [31merror[39m: [31mErreur de validation : "path" is required[39m
+29-03-2024 14:51:19:5119 [31merror[39m: [31m"path" is required[39m
+29-03-2024 14:51:41:5141 [32minfo[39m: [32mRequête POST /signup - IP: ::ffff:127.0.0.1[39m
+29-03-2024 14:51:41:5141 [31merror[39m: [31mduplicate key value violates unique constraint "artist_email_key"[39m
+29-03-2024 14:52:11:5211 [32minfo[39m: [32mRequête POST /signup - IP: ::ffff:127.0.0.1[39m
+29-03-2024 14:52:11:5211 [31merror[39m: [31mduplicate key value violates unique constraint "artist_email_key"[39m
+29-03-2024 14:53:23:5323 [32minfo[39m: [32mRequête POST /signin - IP: ::1[39m
+29-03-2024 14:53:24:5324 [32minfo[39m: [32mL'artiste Emilie s'est connecté.[39m
+29-03-2024 15:10:36:1036 [32minfo[39m: [32m[2024-03-29T14:10:36.713Z] - Démarrage du serveur Express.[39m
+29-03-2024 15:10:40:1040 [32minfo[39m: [32mRequête POST /signin - IP: ::ffff:127.0.0.1[39m
+29-03-2024 15:10:40:1040 [31merror[39m: [31mErreur de validation : "value" must have 2 keys[39m
+29-03-2024 15:10:40:1040 [31merror[39m: [31m"value" must have 2 keys[39m
+29-03-2024 15:10:57:1057 [32minfo[39m: [32mRequête POST /signin - IP: ::ffff:127.0.0.1[39m
+29-03-2024 15:10:57:1057 [31merror[39m: [31mErreur de validation : "value" must have 2 keys[39m
+29-03-2024 15:10:57:1057 [31merror[39m: [31m"value" must have 2 keys[39m
+29-03-2024 15:11:25:1125 [32minfo[39m: [32mRequête POST /signin - IP: ::ffff:127.0.0.1[39m
+29-03-2024 15:11:25:1125 [31merror[39m: [31mErreur de validation : "value" must have 2 keys[39m
+29-03-2024 15:11:25:1125 [31merror[39m: [31m"value" must have 2 keys[39m
+29-03-2024 15:11:47:1147 [32minfo[39m: [32mRequête POST /signin - IP: ::ffff:127.0.0.1[39m
+29-03-2024 15:11:47:1147 [32minfo[39m: [32mL'artiste Emilie s'est connecté.[39m
+29-03-2024 15:12:15:1215 [32minfo[39m: [32mRequête POST /signin - IP: ::ffff:127.0.0.1[39m
+29-03-2024 15:12:15:1215 [31merror[39m: [31mErreur de validation : "value" must have 2 keys[39m
+29-03-2024 15:12:15:1215 [31merror[39m: [31m"value" must have 2 keys[39m
+29-03-2024 15:12:37:1237 [32minfo[39m: [32mRequête POST /signin - IP: ::ffff:127.0.0.1[39m
+29-03-2024 15:12:38:1238 [32minfo[39m: [32mL'artiste Emilie s'est connecté.[39m
+29-03-2024 15:16:59:1659 [32minfo[39m: [32mRequête POST /signin - IP: ::1[39m
+29-03-2024 15:16:59:1659 [32minfo[39m: [32mL'artiste Emilie s'est connecté.[39m
+29-03-2024 15:25:48:2548 [32minfo[39m: [32mRequête GET /1/configuration - IP: ::ffff:127.0.0.1[39m
+29-03-2024 15:26:02:262 [32minfo[39m: [32mRequête POST /signin - IP: ::ffff:127.0.0.1[39m
+29-03-2024 15:26:02:262 [32minfo[39m: [32mL'artiste Emilie s'est connecté.[39m
+29-03-2024 15:26:19:2619 [32minfo[39m: [32mRequête GET /1/configuration - IP: ::ffff:127.0.0.1[39m
+29-03-2024 15:28:33:2833 [32minfo[39m: [32m[2024-03-29T14:28:33.692Z] - Démarrage du serveur Express.[39m
+29-03-2024 15:28:47:2847 [32minfo[39m: [32mRequête PATCH /1/configuration - IP: ::ffff:127.0.0.1[39m
+29-03-2024 15:30:32:3032 [32minfo[39m: [32mRequête PATCH /1/configuration - IP: ::ffff:127.0.0.1[39m
+29-03-2024 15:37:28:3728 [32minfo[39m: [32mRequête PATCH /1/configuration - IP: ::ffff:127.0.0.1[39m
+29-03-2024 15:37:28:3728 [31merror[39m: [31mAccès non autorisé[39m
+29-03-2024 15:50:54:5054 [32minfo[39m: [32m[2024-03-29T14:50:54.318Z] - Démarrage du serveur Express.[39m
+29-03-2024 15:50:56:5056 [32minfo[39m: [32mRequête POST /1/configuration - IP: ::ffff:127.0.0.1[39m
+29-03-2024 15:52:03:523 [32minfo[39m: [32mRequête POST /1/oeuvres/telechargement-oeuvre - IP: ::ffff:127.0.0.1[39m
+29-03-2024 16:00:14:014 [32minfo[39m: [32mRequête GET /1/oeuvres-homePage - IP: ::1[39m
+29-03-2024 16:00:14:014 [32minfo[39m: [32mRequête GET /1 - IP: ::1[39m
+29-03-2024 16:00:14:014 [32minfo[39m: [32mRequête GET /1/categories/oeuvres - IP: ::1[39m
+29-03-2024 16:00:14:014 [32minfo[39m: [32mRequête GET /1/configuration - IP: ::1[39m
+29-03-2024 16:00:14:014 [32minfo[39m: [32mRequête GET /1/categories - IP: ::1[39m
+29-03-2024 16:02:14:214 [32minfo[39m: [32mRequête POST /1/envoyer-email - IP: ::1[39m
+29-03-2024 16:03:10:310 [32minfo[39m: [32mRequête POST /1/envoyer-email - IP: ::1[39m
+29-03-2024 16:18:48:1848 [32minfo[39m: [32m[2024-03-29T15:18:48.992Z] - Démarrage du serveur Express.[39m
+29-03-2024 16:18:51:1851 [32minfo[39m: [32mRequête POST /1/envoyer-email - IP: ::ffff:127.0.0.1[39m
+29-03-2024 16:41:52:4152 [32minfo[39m: [32m[2024-03-29T15:41:52.741Z] - Démarrage du serveur Express.[39m
+29-03-2024 19:13:43:1343 [32minfo[39m: [32m[2024-03-29T18:13:43.393Z] - Démarrage du serveur Express.[39m
+29-03-2024 19:13:46:1346 [32minfo[39m: [32mRequête POST /signin - IP: ::1[39m
+29-03-2024 19:13:46:1346 [32minfo[39m: [32mL'artiste Emilie s'est connecté.[39m
+29-03-2024 19:36:46:3646 [32minfo[39m: [32m[2024-03-29T18:36:46.884Z] - Démarrage du serveur Express.[39m
+29-03-2024 19:36:55:3655 [32minfo[39m: [32mRequête GET /1 - IP: ::ffff:127.0.0.1[39m
+29-03-2024 19:37:11:3711 [32minfo[39m: [32mRequête GET /1/oeuvres - IP: ::ffff:127.0.0.1[39m
+29-03-2024 19:37:21:3721 [32minfo[39m: [32mRequête GET /1/oeuvres/1 - IP: ::ffff:127.0.0.1[39m
+29-03-2024 19:37:28:3728 [32minfo[39m: [32mRequête GET /1/oeuvres/2 - IP: ::ffff:127.0.0.1[39m
+29-03-2024 19:37:43:3743 [32minfo[39m: [32mRequête GET /1/categories - IP: ::ffff:127.0.0.1[39m
+29-03-2024 19:38:54:3854 [32minfo[39m: [32mRequête GET /categories/1 - IP: ::ffff:127.0.0.1[39m
+29-03-2024 19:39:03:393 [32minfo[39m: [32mRequête GET /categories/2 - IP: ::ffff:127.0.0.1[39m
+29-03-2024 19:39:31:3931 [32minfo[39m: [32mRequête GET /1/categories/2 - IP: ::ffff:127.0.0.1[39m
+29-03-2024 19:40:01:401 [32minfo[39m: [32mRequête GET /1/oeuvres/1 - IP: ::ffff:127.0.0.1[39m
+29-03-2024 19:40:12:4012 [32minfo[39m: [32mRequête GET /1/configuration - IP: ::ffff:127.0.0.1[39m
+29-03-2024 19:40:31:4031 [32minfo[39m: [32mRequête GET /1/ - IP: ::ffff:127.0.0.1[39m
+29-03-2024 19:40:56:4056 [32minfo[39m: [32mRequête PATCH /1/ - IP: ::ffff:127.0.0.1[39m
+29-03-2024 19:40:56:4056 [31merror[39m: [31mAccès non autorisé[39m
+29-03-2024 19:41:26:4126 [32minfo[39m: [32mRequête POST /signin - IP: ::ffff:127.0.0.1[39m
+29-03-2024 19:41:27:4127 [32minfo[39m: [32mL'artiste Emilie s'est connecté.[39m
+29-03-2024 19:42:05:425 [32minfo[39m: [32mRequête PATCH /1/ - IP: ::ffff:127.0.0.1[39m
+29-03-2024 19:42:16:4216 [32minfo[39m: [32mRequête PATCH /1/ - IP: ::ffff:127.0.0.1[39m
+29-03-2024 19:42:55:4255 [32minfo[39m: [32mRequête PATCH /2/ - IP: ::ffff:127.0.0.1[39m
+29-03-2024 19:43:02:432 [32minfo[39m: [32mRequête POST /2/ - IP: ::ffff:127.0.0.1[39m
+29-03-2024 19:45:53:4553 [32minfo[39m: [32mRequête GET /1/oeuvres/10 - IP: ::ffff:127.0.0.1[39m
+29-03-2024 19:46:12:4612 [32minfo[39m: [32mRequête GET /1/oeuvres/10 - IP: ::ffff:127.0.0.1[39m
+29-03-2024 19:47:18:4718 [32minfo[39m: [32mRequête PATCH /1/oeuvres/10 - IP: ::ffff:127.0.0.1[39m
+29-03-2024 19:48:55:4855 [32minfo[39m: [32mRequête PATCH /1/oeuvres-homePage - IP: ::ffff:127.0.0.1[39m
+29-03-2024 19:49:01:491 [32minfo[39m: [32mRequête GET /1/oeuvres-homePage - IP: ::ffff:127.0.0.1[39m
+29-03-2024 19:49:43:4943 [32minfo[39m: [32mRequête GET /1/configuration - IP: ::ffff:127.0.0.1[39m
+29-03-2024 19:50:06:506 [32minfo[39m: [32mRequête PATCH /1/configuration - IP: ::ffff:127.0.0.1[39m
+29-03-2024 19:50:11:5011 [32minfo[39m: [32mRequête PATCH /1/configuration - IP: ::ffff:127.0.0.1[39m
+29-03-2024 19:52:05:525 [32minfo[39m: [32mRequête GET /1/categories - IP: ::ffff:127.0.0.1[39m
+29-03-2024 19:52:33:5233 [32minfo[39m: [32mRequête GET /1/categories/oeuvres - IP: ::ffff:127.0.0.1[39m
+29-03-2024 19:53:31:5331 [32minfo[39m: [32mRequête GET /1/categories/1 - IP: ::ffff:127.0.0.1[39m
+29-03-2024 19:53:43:5343 [32minfo[39m: [32mRequête GET /1/categories - IP: ::ffff:127.0.0.1[39m
+29-03-2024 19:54:35:5435 [32minfo[39m: [32mRequête PATCH /1/categories/2 - IP: ::ffff:127.0.0.1[39m
+29-03-2024 19:55:15:5515 [32minfo[39m: [32mRequête POST /1/categories/ - IP: ::ffff:127.0.0.1[39m
+29-03-2024 19:55:20:5520 [32minfo[39m: [32mRequête DELETE /1/categories/ - IP: ::ffff:127.0.0.1[39m
+29-03-2024 19:55:28:5528 [32minfo[39m: [32mRequête DELETE /1/categories/12 - IP: ::ffff:127.0.0.1[39m
+29-03-2024 19:55:48:5548 [32minfo[39m: [32mRequête POST /1/categories/12 - IP: ::ffff:127.0.0.1[39m
+29-03-2024 19:55:55:5555 [32minfo[39m: [32mRequête POST /1/categories/ - IP: ::ffff:127.0.0.1[39m
+29-03-2024 19:56:13:5613 [32minfo[39m: [32mRequête DELETE /1/categories/13 - IP: ::ffff:127.0.0.1[39m

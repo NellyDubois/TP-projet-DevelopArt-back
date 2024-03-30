@@ -9,15 +9,9 @@ const options = {
         title: "Develop'Art",
         description: "Galerie personnalisable pour artistes",
     },
-    // security: {
-    //     BasicAuth: {
-    //       type: 'http',
-    //       scheme: 'basic',
-    //     },
-    // },
     baseDir: __dirname,
     // On analyse tous les fichiers du projet
-    filesPattern: ['../router/*.js', './error/*.js', '../datamapper/*.js'],
+    filesPattern: ['../router/*.js', './error/*.js', '../datamapper/*.js', '../controller/*.js'],
     // URL où sera disponible la page de documentation
     swaggerUIPath: process.env.API_DOCUMENTATION_ROUTE,
     // Activation de la documentation à travers une route de l'API

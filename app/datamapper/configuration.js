@@ -2,19 +2,18 @@ import { executeRequestWithSingleResult} from "../utils/pgUtils.js";
 
 /**
  * @typedef {object} Configuration
- * @property {number} artiste_id.required - Identifiant unique Pk de la table artist
- * @property {string} font_type - Nouveau type de police
- * @property {string} background_color - Nouvelle couleur de fond
- * @property {string} background_color_nav - Nouvelle couleur de fond de la barre de navigation
- * @property {string} cursor - Nouveau curseur
- * @property {string} font_color - Nouvelle couleur de police
- * @property {number} layout - Nouveau layout
- * @property {string} banner - Nouvelle bannière
- * @property {string} logo - Nouveau logo
- * @property {boolean} facebook_flag - Nouvelle valeur du drapeau Facebook
- * @property {boolean} insta_flag - Nouvelle valeur du drapeau Instagram
- * @property {boolean} twitter_flag - Nouvelle valeur du drapeau Twitter
- * @property {boolean} youtube_flag - Nouvelle valeur du drapeau YouTube
+ * @property {string} font_type - Font type
+ * @property {string} background_color - Background color
+ * @property {string} background_color_nav - Background color of the navigation bar
+ * @property {string} cursor - Type of cursor
+ * @property {string} font_color - Font color
+ * @property {number} layout - Layout
+ * @property {string} banner - Banner
+ * @property {string} logo - Logo
+ * @property {boolean} facebook_flag - Facebook flag
+ * @property {boolean} insta_flag - Instagram flag
+ * @property {boolean} twitter_flag - Twitter flag
+ * @property {boolean} youtube_flag - YouTube flag
  */
 
 export default {

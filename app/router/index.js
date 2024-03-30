@@ -53,22 +53,28 @@ const storage = multer.diskStorage({
   // Configurer Multer avec le stockage personnalisé défini au-dessus
    const upload = multer({ storage: storage });
 
-
-    /**
-    * Route pour la création d'un nouvel artiste
+//pour créer de nouveaux artistes
+/**
     * POST /signup
     * @summary Add one user
-    * @tags User
+    * @tags User    
     * @return {User} 200 - Success response - application/json
     * @return {ApiError} 400 - Bad request response - application/json
     * @return {ApiError} 404 - Account not found - application/json
  */
 router.post("/signup",validate(signupShema),userController.signup);
 
-/** Route pour gérer l'authentification des artistes
+/**
+ * @typedef {object} Identifiers
+ * @property {string} email.required - The email
+ * @property {string} password.required - The password
+ */
+//pour gérer l'authentification des artistes
+/**
     * POST /signin
     * @summary Check user
-    * @tags User
+    * @tags User 
+    * @param {Identifiers} request.body.required - Identifiers for signin
     * @return {User} 200 - Success response - application/json
     * @return {ApiError} 400 - Bad request response - application/json
     * @return {ApiError} 404 - Category not found - application/json
@@ -80,8 +86,8 @@ router.post("/signin",validate(signinSchema),userController.signin);
 // par exemple, afficher la page de configuration, modifier les données de config, de l'artiste,...
 
 // Toutes les routes qui commencent par /:artiste_id/oeuvres
-
-/** Route pour la récupération une oeuvre d'un artiste
+// Route pour la récupération une oeuvre d'un artiste
+/**
     * GET /{artiste_id}/oeuvres/{oeuvre_id}
     * @summary Get one artwork
     * @tags Artwork
@@ -93,19 +99,41 @@ router.post("/signin",validate(signinSchema),userController.signin);
  */
 router.get("/:artiste_id(\\d+)/oeuvres/:oeuvre_id(\\d+)", artworkController.getArtworkByArtistAndId);
 
-/** Route pour modifier une oeuvre d'un artiste
+/**
+ * @typedef {object} NewArtwork 
+ * @property {string} artwork_name.required - name of the artwork
+ * @property {string} description - description of the artwork
+ * @property {number} production_year.required - date of production 
+ * @property {string} technique - technique used
+ * @property {number} width.required - width
+ * @property {number} height.required - height
+ * @property {string} media - media used
+ * @property {boolean} framing - framing
+ * @property {string} quote - quote
+ * @property {string} path.required - path to the artwork
+ * @property {string} orientation - orientation 
+ * @property {number} position.required - position in the gallery
+ * @property {boolean} homepage_flag.required - homepage flag
+ * @property {string} category_names - categories of the artwork
+ * @property {string} file.required - The file of the artwork
+*/
+
+// Route pour la récupération une oeuvre d'un artiste
+/**
     * PATCH /{artiste_id}/oeuvres/{oeuvre_id}
     * @summary Update one artwork
     * @tags Artwork
     * @param {number} artiste_id.path.required - artist identifier
-    * @param {number} oeuvre_id.path.required - artwork identifier
+    * @param {number} oeuvre_id.path.required - artwork identifier     
+    * @param {NewArtwork} request.body.required - Artwork informations to modify
     * @return {Artwork} 200 - Success response - application/json
     * @return {ApiError} 400 - Bad request response - application/json
     * @return {ApiError} 404 - Artwork not found - application/json
  */
 router.patch("/:artiste_id(\\d+)/oeuvres/:oeuvre_id(\\d+)", isArtist,artworkController.modifyArtworkByArtistAndId);
 
-/** Route pour supprimer une oeuvre d'un artiste
+// Route pour supprimer une oeuvre d'un artiste
+/**
     * DELETE /{artiste_id}/oeuvres/{oeuvre_id}
     * @summary Delete one artwork
     * @tags Artwork
@@ -117,7 +145,8 @@ router.patch("/:artiste_id(\\d+)/oeuvres/:oeuvre_id(\\d+)", isArtist,artworkCont
  */
 router.delete('/:artiste_id(\\d+)/oeuvres/:oeuvre_id(\\d+)', isArtist,artworkController.deleteArtworkByArtistAndId);
 
-/** Route pour la récupération de toutes les oeuvres d'un artiste
+// Route pour la récupération de toutes les oeuvres d'un artiste
+/**
     * GET /{artiste_id}/oeuvres
     * @summary Get all artworks
     * @tags Artwork
@@ -128,7 +157,8 @@ router.delete('/:artiste_id(\\d+)/oeuvres/:oeuvre_id(\\d+)', isArtist,artworkCon
  */
 router.get("/:artiste_id(\\d+)/oeuvres", artworkController.getArworksByArtistId);
 
-/** Route pour la récupération des oeuvres pour la home page d'un artiste
+// Route pour la récupération des oeuvres pour la home page d'un artiste
+/**
     * GET /{artiste_id}/oeuvres-homePage
     * @summary Get homepage artworks
     * @tags Artwork
@@ -138,19 +168,22 @@ router.get("/:artiste_id(\\d+)/oeuvres", artworkController.getArworksByArtistId)
     * @return {ApiError} 404 - Artwork not found - application/json
  */
 router.get("/:artiste_id(\\d+)/oeuvres-homePage", artworkController.getArtworksForHomePage);
- 
-/** Route pour ajouter des oeuvres d'un artiste
+
+// Route pour ajouter des oeuvres d'un artiste
+/**
     * POST /{artiste_id}/oeuvres
     * @summary Add a new artwork
     * @tags Artwork
-    * @param {number} artiste_id.path.required - artist identifier
+    * @param {number} artiste_id.path.required - artist identifier     
+    * @param {NewArtwork} request.body.required - NewArtwork informations
     * @return {Artwork} 200 - Success response - application/json
     * @return {ApiError} 400 - Bad request response - application/json
     * @return {ApiError} 404 - Artwork not found - application/json
  */
 router.post("/:artiste_id(\\d+)/oeuvres", isArtist,artworkController.addArtworkByArtistId);
- 
-/** Route pour récupérer la configuration d'un artiste
+
+// Route pour récupérer la configuration d'un artiste
+/**
     * GET /{artiste_id}/configuration
     * @summary Get the artist configuration
     * @tags Configuration
@@ -161,18 +194,21 @@ router.post("/:artiste_id(\\d+)/oeuvres", isArtist,artworkController.addArtworkB
  */
 router.get("/:artiste_id(\\d+)/configuration",configurationController.getConfigurationByArtistId);
 
-/** Route pour modifier la configuration d'un artiste
+// Route pour modifier la configuration d'un artiste
+/**
     * PATCH /{artiste_id}/configuration
     * @summary Update the artist configuration
     * @tags Configuration
-    * @param {number} artiste_id.path.required - artist identifier
+    * @param {number} artiste_id.path.required - artist identifier   
+    * @param {Configuration} request.body.required - Configuration to modify
     * @return {Configuration} 200 - Success response - application/json
     * @return {ApiError} 400 - Bad request response - application/json
     * @return {ApiError} 404 - Configuration not found - application/json
  */
 router.patch("/:artiste_id(\\d+)/configuration",isArtist,configurationController.updateConfigurationByArtistId);
 
-/** Route pour récupérer les informations d'un artiste
+// Route pour récupérer les informations d'un artiste
+/**
     * GET /{artiste_id}
     * @summary Get the artist informations
     * @tags Artist
@@ -182,8 +218,9 @@ router.patch("/:artiste_id(\\d+)/configuration",isArtist,configurationController
     * @return {ApiError} 404 - Artist not found - application/json
  */
 router.get("/:artiste_id(\\d+)", artistController.getArtistById);
- 
-/** Route pour modifier les informations d'un artiste
+
+// Route pour modifier les informations d'un artiste
+/**
     * PATCH /{artiste_id}
     * @summary Update the artist informations
     * @tags Artist
@@ -195,7 +232,9 @@ router.get("/:artiste_id(\\d+)", artistController.getArtistById);
 router.patch("/:artiste_id(\\d+)", isArtist, artistController.updateArtistById);
 
 // Toutes les routes qui commencent par /:artiste_id/categories
-/** Route pour récupérer les catégories d'un artiste et toutes les oeuvres de chaque catégorie
+// Routes GET
+// Route pour récupérer les catégories d'un artiste et toutes les oeuvres de chaque catégorie
+/**
     * GET /{artiste_id}/categories/oeuvres
     * @summary Get all categories with all the artworks
     * @tags Category
@@ -203,10 +242,11 @@ router.patch("/:artiste_id(\\d+)", isArtist, artistController.updateArtistById);
     * @return {Category} 200 - Success response - application/json
     * @return {ApiError} 400 - Bad request response - application/json
     * @return {ApiError} 404 - Category not found - application/json
- */
+*/
 router.get("/:artiste_id(\\d+)/categories/oeuvres", categoryController.getCategoriesByArtistId);
 
-/** Route pour récupérer les noms de catégories d'un artiste
+// Route pour récupérer les noms de catégories d'un artiste 
+/**
     * GET /{artiste_id}/categories
     * @summary Get categories names by artist id
     * @tags Category
@@ -214,10 +254,11 @@ router.get("/:artiste_id(\\d+)/categories/oeuvres", categoryController.getCatego
     * @return {Category} 200 - Success response - application/json
     * @return {ApiError} 400 - Bad request response - application/json
     * @return {ApiError} 404 - Category not found - application/json
- */
+*/
 router.get("/:artiste_id(\\d+)/categories", categoryController.getCategoriesNamesByArtistId);
 
-/** Route pour récupérer les oeuvres d'une catégorie d'un artiste
+// Route pour récupérer les oeuvres d'une catégorie d'un artiste
+/**
     * GET /{artiste_id}/categories/{categorie_id}
     * @summary Get one category
     * @tags Category
@@ -229,30 +270,46 @@ router.get("/:artiste_id(\\d+)/categories", categoryController.getCategoriesName
  */
 router.get("/:artiste_id(\\d+)/categories/:categorie_id(\\d+)", categoryController.getCategoryByArtistAndId);
 
-/** Route pour créer les catégories d'un artiste
+// Route POST
+
+/**
+ * @typedef {object} NewCategory
+ * @property {string} name.required - The name
+ * @property {string} description - The description
+ * @property {string} color.required - The color
+ */
+
+// Route pour créer les catégories d'un artiste
+/**
     * POST /{artiste_id}/categories
     * @summary Add a new category
     * @tags Category
-    * @param {number} artiste_id.path.required - artist identifier
+    * @param {number} artiste_id.path.required - artist identifier     
+    * @param {NewCategory} request.body.required - New category informations
     * @return {Category} 200 - Success response - application/json
     * @return {ApiError} 400 - Bad request response - application/json
     * @return {ApiError} 404 - Category not found - application/json
  */
 router.post("/:artiste_id(\\d+)/categories", isArtist,categoryController.addCategoryByArtistId);
 
-/** / Route pour modifier une catégorie d'un artiste
+// Route PATCH
+// Route pour modifier une catégorie d'un artiste
+/**
     * PATCH /{artiste_id}/categories/{categorie_id}
     * @summary Update the category informations
     * @tags Category
     * @param {number} artiste_id.path.required - artist identifier
-    * @param {number} categorie_id.path.required - category identifier
+    * @param {number} categorie_id.path.required - category identifier     
+    * @param {NewCategory} request.body.required - Category informations
     * @return {Category} 200 - Success response - application/json
     * @return {ApiError} 400 - Bad request response - application/json
     * @return {ApiError} 404 - Category not found - application/json
  */
 router.patch("/:artiste_id(\\d+)/categories/:categorie_id(\\d+)", isArtist,categoryController.updateCategoryByArtistAndId);
 
-/** Route pour supprimer une catégorie d'un artiste
+// Route DELETE
+// Route pour supprimer une catégorie d'un artiste
+/**
     * DELETE /{artiste_id}/categories/{categorie_id}
     * @summary Delete one category
     * @tags Category
@@ -267,13 +324,29 @@ router.delete("/:artiste_id(\\d+)/categories/:categorie_id(\\d+)", isArtist,cate
 //Route pour le téléchargement des images et des informations liées à l'oeuvre téléchargée
 /**
  * @typedef {object} Download
- */
+ * @property {string} artwork_name.required - name of the artwork
+ * @property {string} description - description of the artwork
+ * @property {number} production_year.required - date of production 
+ * @property {string} technique - technique used
+ * @property {number} width.required - width
+ * @property {number} height.required - height
+ * @property {string} media - media used
+ * @property {boolean} framing - framing
+ * @property {string} quote - quote
+ * @property {string} path.required - path to the artwork
+ * @property {string} orientation - orientation 
+ * @property {number} position.required - position in the gallery
+ * @property {boolean} homepage_flag.required - homepage flag
+ * @property {string} category_names - categories of the artwork
+ * @property {string} file.required - The file of the artwork
+*/
 /**
     * POST /{artiste_id}/oeuvres/telechargement-oeuvre
     * @summary Download artwork and its informations
     * @tags Download
-    * @param {number} artiste_id.path.required - artist identifier
-    * @return {Download} 200 - Success response - application/json
+    * @param {number} artiste_id.path.required - artist identifier 
+    * @param {Download} request.body.required - Artwork details with file
+    * @return {DownloadOK} 200 - Success response - application/json
     * @return {ApiError} 400 - Bad request response - application/json
     * @return {ApiError} 404 - Category not found - application/json
  */
@@ -282,12 +355,19 @@ router.post('/:artiste_id(\\d+)/oeuvres/telechargement-oeuvre', upload.single('f
 // Route pour envoyer un email à l'artiste depuis le formulaire contact
 /**
  * @typedef {object} Contact
+ * @property {string} firstname.required - firstname 
+ * @property {string} lastname.required - lastname
+ * @property {string} phone - phone
+ * @property {string} email.required - email
+ * @property {string} story.required - story
+ * @property {string} objectEmail - object of the email
  */
 /**
     * POST /{artiste_id}/envoyer-email
     * @summary Send an e-mail to the artist from the contact form
     * @tags Contact
     * @param {number} artiste_id.path.required - artist identifier
+    * @param {Contact} request.body.required - Sender and content of the email
     * @return {Contact} 200 - Success response - application/json
     * @return {ApiError} 400 - Bad request response - application/json
     * @return {ApiError} 404 - Contact not found - application/json

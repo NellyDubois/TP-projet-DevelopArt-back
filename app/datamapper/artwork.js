@@ -23,7 +23,7 @@ export default {
     /**
     * @async
     * @param {object} id - id de l'artiste dont on veut récupérer les oeuvres
-    * @returns {Promise<object>} réponse de la base de donnée
+    * @returns {Promise<object>} réponse de la base de données
     */
     async getArworksByArtistId(artiste_id) {
         // Requête SQL pour récupérer les oeuvres de l'artiste par l'id de l'artiste

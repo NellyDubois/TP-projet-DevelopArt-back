@@ -24,26 +24,25 @@
 # Content-Type:application/json
 
 # # // Route pour tester POST /:artiste_id/categories
-# POST http://localhost:3000/1/categories
+POST http://localhost:3000/1/categories
+Content-Type:application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzExODE3MjYzLCJleHAiOjE3MTE4MjQ0NjN9.Mif-K-Sh56s_LccZIuAl3JYADcXRN8BslJpLgQdf_MI
+
+{
+    "name": "test nouvelle catégorie",
+    "color": "#FEFEE0"
+}
+
+# # # // Route pour tester PATCH /:artiste_id/categories/:categorie_id
+# PATCH http://localhost:3000/1/categories/30
 # Content-Type:application/json
 # Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.MQ.W6PGTCJ5oubFUOAV8VWOoh8_SzmiMcBzDzWunPTtlKw
 
 # {
-#     "name": "test nouvelle catégorie",
-#     "description": "Thèmes divers",
-#     "color": "#FEFEE0"
+#     "description": "changment de description"
 # }
-
-# # # // Route pour tester PATCH /:artiste_id/categories/:categorie_id
-PATCH http://localhost:3000/1/categories/30
-Content-Type:application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.MQ.W6PGTCJ5oubFUOAV8VWOoh8_SzmiMcBzDzWunPTtlKw
-
-{
-    "description": "changment de description"
-}
 # // Route pour tester DELETE /:artiste_id/categories/:categorie_id
-DELETE http://localhost:3000/1/categories/29
-Content-Type:application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.MQ.W6PGTCJ5oubFUOAV8VWOoh8_SzmiMcBzDzWunPTtlKw
+# DELETE http://localhost:3000/1/categories/29
+# Content-Type:application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.MQ.W6PGTCJ5oubFUOAV8VWOoh8_SzmiMcBzDzWunPTtlKw
 

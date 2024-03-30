@@ -41,3 +41,11 @@
 29-03-2024 19:40:56:4056 [31merror[39m: [31mAccès non autorisé[39m
 30-03-2024 15:40:18:4018 [31merror[39m: [31mAccès non autorisé[39m
 30-03-2024 15:40:20:4020 [31merror[39m: [31mAccès non autorisé[39m
+30-03-2024 17:45:57:4557 [31merror[39m: [31mErreur lors du décodage du token JWT : jwt expired[39m
+30-03-2024 17:45:57:4557 [31merror[39m: [31mCannot read properties of undefined (reading 'id')[39m
+30-03-2024 17:46:43:4643 [31merror[39m: [31mErreur lors du décodage du token JWT : jwt expired[39m
+30-03-2024 17:46:43:4643 [31merror[39m: [31mCannot read properties of undefined (reading 'id')[39m
+30-03-2024 17:48:55:4855 [31merror[39m: [31mErreur lors du décodage du token JWT : jwt expired[39m
+30-03-2024 17:48:55:4855 [31merror[39m: [31mCannot read properties of undefined (reading 'id')[39m
+30-03-2024 17:51:30:5130 [31merror[39m: [31mErreur lors du décodage du token JWT : jwt expired[39m
+30-03-2024 17:51:30:5130 [31merror[39m: [31mCannot read properties of undefined (reading 'id')[39m

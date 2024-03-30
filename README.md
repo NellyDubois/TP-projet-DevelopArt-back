@@ -33,8 +33,9 @@ La cible indirecte est donc également les visiteurs des sites web créés à tr
 
 ## Architecture
 
-1 repo github pour le back et un pour le front
-Le front récupère les données de l'API RESTful (back) via des fetch
+1 repo github pour le back et un pour le front.
+
+Le front récupère les données de l'API RESTful (back) via des fetch.
 
 ## Routes back
 

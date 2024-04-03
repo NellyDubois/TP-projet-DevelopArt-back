@@ -188,6 +188,11 @@ const artworkController = {
             if (!req.file) {
             return res.status(400).send('Aucun fichier n\'a été téléchargé.');
         }
+
+        // Si une erreur s'est produite lors de l'upload, renvoyer une réponse avec un statut d'erreur
+        if (req.fileValidationError) {
+            return res.status(400).send({ error: req.fileValidationError });
+        }
         
         // Récupérer le nom du fichier depuis req.file.originalname et stocker le chemin d'accès dans la variable path
         const path=`/upload/${req.file.filename}`;

@@ -1111,7 +1111,7 @@ CREATE OR REPLACE FUNCTION get_categories_names_by_artist_id(artist_id_param INT
 RETURNS TABLE (
     id int,
     name text,
-    descripton text,
+    description text,
     color text
 ) AS $$
     BEGIN

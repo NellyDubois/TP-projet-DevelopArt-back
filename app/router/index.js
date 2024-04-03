@@ -50,8 +50,18 @@ const storage = multer.diskStorage({
     }
   });
   
-  // Configurer Multer avec le stockage personnalisé défini au-dessus
-   const upload = multer({ storage: storage });
+// Configurer Multer avec le stockage personnalisé défini au-dessus
+const upload = multer({
+    storage: storage,
+    fileFilter: function (req, file, cb) {
+      if (!file.originalname.match(/\.(jpg|JPG|jpeg|JPEG|png|PNG|gif|GIF)$/)) {
+        // Passer une erreur à la fonction de rappel
+        return cb(new Error('Seuls les fichiers image sont autorisés'), false);
+      }
+      cb(null, true);
+    },
+  });
+
 
 //pour créer de nouveaux artistes
 /**

@@ -49,3 +49,12 @@
 30-03-2024 17:48:55:4855 [31merror[39m: [31mCannot read properties of undefined (reading 'id')[39m
 30-03-2024 17:51:30:5130 [31merror[39m: [31mErreur lors du décodage du token JWT : jwt expired[39m
 30-03-2024 17:51:30:5130 [31merror[39m: [31mCannot read properties of undefined (reading 'id')[39m
+03-04-2024 09:45:19:4519 [31merror[39m: [31mUne erreur s'est produite : function get_artist_by_id(unknown) does not exist[39m
+03-04-2024 09:45:19:4519 [31merror[39m: [31mfunction get_artist_by_id(unknown) does not exist[39m
+03-04-2024 09:46:54:4654 [31merror[39m: [31mUne erreur s'est produite : function get_artist_by_id(unknown) does not exist[39m
+03-04-2024 09:46:54:4654 [31merror[39m: [31mfunction get_artist_by_id(unknown) does not exist[39m
+03-04-2024 10:07:04:74 [31merror[39m: [31mSeuls les fichiers image sont autorisés ![39m
+03-04-2024 10:26:55:2655 [31merror[39m: [31mSeuls les fichiers image sont autorisés ![39m
+03-04-2024 10:27:57:2757 [31merror[39m: [31mSeuls les fichiers image sont autorisés ![39m
+03-04-2024 10:31:09:319 [31merror[39m: [31mSeuls les fichiers image sont autorisés ![39m
+03-04-2024 10:35:02:352 [31merror[39m: [31mSeuls les fichiers image sont autorisés[39m

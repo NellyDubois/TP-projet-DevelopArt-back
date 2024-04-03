@@ -1,0 +1,25 @@
+# # # # # //route pour tester GET /:artiste_id/oeuvres
+# GET http://localhost:3000/1/configuration
+# Content-Type:application/json
+
+
+PATCH http://localhost:3000/1/configuration
+Content-Type:application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzExNzIyMzYyLCJleHAiOjE3MTE3Mjk1NjJ9.78AxZsZKrPTnGYZyhXBSGDUBCc33GET2G8Q67Z2h5uA
+
+{
+
+  "font_type": "Barriecito",
+  "background_color": "#1f1e1e",
+  "background_color_nav": "#f9bc60",
+  "cursor": "/cursor/camera.png",
+  "font_color": "#1c875e",
+  "layout": 1,
+  "banner": "/banner/abstrait-jaune-vert.jpeg",
+  "logo": "/logos/logo-photo.png",
+  "facebook_flag": true,
+  "insta_flag": true,
+  "twitter_flag": true,
+  "youtube_flag": true
+
+}

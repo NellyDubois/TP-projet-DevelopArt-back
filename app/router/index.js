@@ -60,7 +60,7 @@ const upload = multer({
       }
       cb(null, true);
     },
-  });
+});
 
 
 //pour créer de nouveaux artistes

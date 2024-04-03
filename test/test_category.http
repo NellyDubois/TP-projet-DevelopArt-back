@@ -1,0 +1,49 @@
+
+# POST https://api.example.com/user/upload
+# Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+# ------WebKitFormBoundary7MA4YWxkTrZu0gW
+# Content-Disposition: form-data; name="text"
+# title
+# ------WebKitFormBoundary7MA4YWxkTrZu0gW
+# Content-Disposition: form-data; name="image"; filename="1.png"
+# Content-Type: image/png
+
+# POST https://api.example.com/user/upload
+# Content-Disposition: form-data; name="image"; filename="1.png"
+# Content-Type: image/png
+
+# GET http://localhost:3000/1/categories/oeuvres
+# Content-Type:application/json
+
+# # // Route pour tester GET /:artiste_id/categories
+# GET http://localhost:3000/1/categories
+# Content-Type:application/json
+
+# # // Route pour tester GET /:artiste_id/categories/:categorie_id
+# GET http://localhost:3000/1/categories/3
+# Content-Type:application/json
+
+# # // Route pour tester POST /:artiste_id/categories
+# POST http://localhost:3000/1/categories
+# Content-Type:application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.MQ.W6PGTCJ5oubFUOAV8VWOoh8_SzmiMcBzDzWunPTtlKw
+
+# {
+#     "name": "test nouvelle catégorie",
+#     "description": "Thèmes divers",
+#     "color": "#FEFEE0"
+# }
+
+# # # // Route pour tester PATCH /:artiste_id/categories/:categorie_id
+PATCH http://localhost:3000/1/categories/30
+Content-Type:application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.MQ.W6PGTCJ5oubFUOAV8VWOoh8_SzmiMcBzDzWunPTtlKw
+
+{
+    "description": "changment de description"
+}
+# // Route pour tester DELETE /:artiste_id/categories/:categorie_id
+DELETE http://localhost:3000/1/categories/29
+Content-Type:application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.MQ.W6PGTCJ5oubFUOAV8VWOoh8_SzmiMcBzDzWunPTtlKw
+
